@@ -1,15 +1,25 @@
-# Projeto-Aurora
-O projeto visa otimizar a comunicação entre os clientes e a empresa de energia, visando uma experiência mais eficiente e satisfatória para ambas as partes
+<div align="center">
+    <h1 style="display: inline;"># Projeto-Aurora</h1>
+    <img src="https://github.com/GuilhermeNobrega/GuilhermeNobrega/blob/main/Untitled.jpg" alt="Photo" width="200" style="display: inline;">
+</div>
 
+<div align="center"
+  
+O projeto visa otimizar a comunicação entre os clientes e a empresa de energia, visando uma experiência mais eficiente e satisfatória para ambas as partes
+</div>
+
+<div align="center"
+  
   ____            _      _             _
       |  _ \ _ __ ___ (_) ___| |_ ___      / \  _   _ _ __ ___  _ __ __ _
       | |_) | '__/ _ \| |/ _ \ __/ _ \    / _ \| | | | '__/ _ \| '__/ _` |
       |  __/| | | (_) | |  __/ || (_) |  / ___ \ |_| | | | (_) | | | (_| |
       |_|   |_|  \___// |\___|\__\___/  /_/   \_\__,_|_|  \___/|_|  \__,_|
                     |__/
+</div>
 
 <hr>
-<div style="text-align: center;">
+<div align="center">
     <table>
         <tr>
             <th>Área</th>
@@ -36,8 +46,4 @@ O projeto visa otimizar a comunicação entre os clientes e a empresa de energia
             <td>Hector, Guilherme N</td>
         </tr>
     </table>
-</div>
-
-<div style="text-align: center;">
-    <img src="https://github.com/GuilhermeNobrega/GuilhermeNobrega/blob/main/Untitled.jpg" alt="Photo" width="300">
 </div>
