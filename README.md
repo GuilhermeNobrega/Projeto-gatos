@@ -38,4 +38,6 @@ O projeto visa otimizar a comunicação entre os clientes e a empresa de energia
     </table>
 </div>
 
-<img src="" alt="Photo">
+<div style="text-align: center;">
+    <img src="https://github.com/GuilhermeNobrega/GuilhermeNobrega/blob/main/Untitled.jpg" alt="Photo" width="300">
+</div>
