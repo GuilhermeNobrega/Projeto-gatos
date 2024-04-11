@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>Gerente de Projetos</td>
-                <td>Luísa Guilherme N</td>
+                <td>Luísa, Guilherme N</td>
             </tr>
             <tr>
                 <td>Back End</td>
