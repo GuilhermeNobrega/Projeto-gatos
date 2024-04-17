@@ -27,13 +27,13 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav" style="padding-left: 30%; padding-top: 35px;">
+    <div class="collapse navbar-collapse" id="navbarNav" style="padding-left: 50%; padding-top: 35px;">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" style="text-shadow: 0.1px 0 black;" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="text-shadow: 0.1px 0 black;" href="Cadastrado.html">Fazer Cadastro</a>
+          <a class="nav-link" style="text-shadow: 0.1px 0 black;" href="#">Fazer Cadastro</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -42,7 +42,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown"
             style="background-color:rgba(232, 232, 232, 1); text-shadow: 0.1px 0 black;">
-            <a class="dropdown-item" href="fazer_reclamacao.html">Fazer Reclamação</a>
+            <a class="dropdown-item" href="fazer_reclamação.html">Fazer Reclamação</a>
             <a class="dropdown-item" href="#">Pesquisar Reclamação</a>
             <a class="dropdown-item" href="#">Acompanhar Reclamação</a>
           </div>
@@ -62,57 +62,59 @@
       </ul>
     </div>
   </nav>
+  <div class="card mt-5 mx-5" style="border-radius: 15px;">
+    <div class="card-body">
+      <form>
+        <div class="container-fluid">
+          <div class="row d-flex justify-content-around">
+            <div class="col-md-5 col-sm-12">
+              <label for="inputEmail4">Nome completo</label>
+              <input type="email" class="form-control" id="inputEmail4"style="border: 1px solid #999999;" required>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <label for="inputPassword4">CPF</label>
+              <input type="numeric" class="form-control" id="senha" style="border: 1px solid #999999;"  required>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label for="inputAddress">Endereço</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0" style="border: 1px solid #999999;"  required>
+            </div>
+          </div>
+          <br>
+          <div class="row d-flex justify-content-around">
+            <div class="col-md-2 col-sm-12">
+              <label for="inputCEP">CEP</label>
+              <input type="text" class="form-control" id="inputCEP" style="border: 1px solid #999999;"  required>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label for="inputEmail3">Email</label>
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email" style="border: 1px solid #999999;"  required>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <label for="inputCEP">Celular</label>
+              <input type="numeric" class="form-control" id="celular" style="border: 1px solid #999999;"  required> 
+            </div>
+          </div>
+          <br>
+          <div class="row d-flex justify-content-around">
+            <div class="form-group col-md-3">
+              <label for="inputEmail4">Usuário</label>
+              <input type="text" class="form-control" id="usuario" style="border: 1px solid #999999;"  required>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputCEP">Senha</label>
+              <input type="password" class="form-control" id="inputPassword4" style="border: 1px solid #999999;"  required>
+            </div>
+          </div>
+          <br>
+          <a class="btn btn-secondary col-md-2 col-2 mt-5 offset-md-3" href="index.html" >Cancelar</a>
+          <button type="submit" class="btn btn-primary active col-md-2 col-2 mt-5 offset-md-2">Confirmar</button>
 
-  <div class="position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center ">
-    <div class="col-md-5 p-lg-7 mx-auto my-5">
-      <h1 class="display-4 font-weight-normal">Reclame Agora e seja Ouvido!</h1>
-      <h1 class="display-5 font-weight-normal">Aqui, o Poder é do Consumidor!</h1>
-      <a type="button" class="btn btn-primary btn-lg active text-center" href="#">Clique Aqui!</a>
+      </form>
+
     </div>
-
-
-  <br>
-  <br>
-  <div class="card-deck">
-    <div class="card text-center" style="border-radius: 15px;">
-      <div class="card-body">
-        <h4 class="card-title">Junte-se à nossa causa!</h4>
-        <img class="img-fluid" src="pessoasdiscutindo.jpg" alt="Imagem de capa do card"
-          style="width:250px; height: 150px;">
-        <p class="card-text">Seu relato pode fazer a diferença. Ajude-nos a coletar evidências para promover melhorias
-          no serviço de energia. Sua voz tem poder!</p>
-
-      </div>
-    </div>
-    <div class="card text-center" style="border-radius: 15px;">
-      <div class="card-body">
-        <h4 class="card-title">Serviço de energia confiável!</h4>
-        <img class="img-fluid" src="lampadaacesa.jpg" alt="Imagem de capa do card"
-          style="width:250px; height: 150px;">
-        <p class="card-text">Está cansado de lidar com interrupções e problemas elétricos? Faça sua reclamação e
-          contribua para uma mudança significativa. Vamos transformar a qualidade da nossa energia juntos.</p>
-
-      </div>
-    </div>
-    <div class="card text-center" style="border-radius: 15px;">
-      <div class="card-body">
-        <h4 class="card-title">Não sofra em silêncio!</h4>
-        <img class="img-fluid" src="falas.jpg" alt="Imagem de capa do card" style="width:250px; height: 150px;">
-        <p class="card-text">Problemas com sua companhia de energia? Deixe que a gente ajude. Registre sua reclamação e
-          vamos buscar uma solução juntos.</p>
-
-      </div>
-    </div>
-    <div class="card text-center" style="border-radius: 15px;">
-      <div class="card-body">
-        <h4 class="card-title">Quedas constantes de luz?</h4>
-        <img  class="img-fluid" src="lampadaraio.jpg" alt="Imagem de capa do card"
-          style="width:250px; height: 150px;">
-        <p class="card-text">Interrupções frequentes não são apenas inconvenientes, elas afetam sua vida diária.
-          Conte-nos sua experiência e vamos buscar a estabilidade que você merece</p>
-
-      </div>
-    </div>
+  </div>
+  </div>
   </div>
 
 </body>
