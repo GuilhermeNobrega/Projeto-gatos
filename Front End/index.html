@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Bootstrap</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="cover.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('uma-sala-branca-com-teto-curvo-e-um-reflexo-do-ceu_689904-113950.avif');
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (min-width: 768px) {
+      .card-oi {
+        position: fixed;
+        top: 40%;
+        transform: translateY(-50%);
+      }
+
+      .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1080px) {
+      .card-oi {
+        margin-top: 60px;
+        width: 20%;
+      }
+    }
+
+    .nav-link.nav-link-border {
+      border-bottom: 3px solid transparent;
+      /* Linha inferior transparente */
+      padding-bottom: 5px;
+      /* Espaçamento abaixo da linha */
+    }
+
+    .nav-link.nav-link-border.active {
+      border-color: #E2DBD4;
+      /* Cor da linha ativa */
+    }
+    .custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke=' rgb(238, 238, 238)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+    .custom-toggler.navbar-toggler {
+  border-color: rgb(238, 238, 238);
+} 
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
+    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"  data-target="#conteudoNavbarSuportado"
+      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link nav-link-border" href="#" style="color: #E2DBD4;">Home <span class="sr-only">(página
+              atual)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link nav-link-border" href="#" style="color: #E2DBD4;">Relatar Problema</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" style="color:#E2DBD4;" href="#" id="navbarDropdownBlocos" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Blocos
+          </a>
+          <div class="dropdown-menu" style="background-color:#5b287c; " aria-labelledby="navbarDropdownBlocos">
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Bloco 01</a>
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Bloco 02</a>
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Bloco 02</a>
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Bloco 03</a>
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Bloco 04</a>
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Bloco 05</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" style="color:#E2DBD4;" href="#">Achados e Perdidos</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" style="color:#E2DBD4;" href="#" id="navbarDropdownPerfil" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Perfil
+          </a>
+          <div class="dropdown-menu" style="background-color:#5b287c;" aria-labelledby="navbarDropdownPerfil">
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Dados Pessoais</a>
+            <a class="dropdown-item" style="color:#E2DBD4;" href="#">Configurações</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+      </form>
+    </div>
+  </nav>
+
+  <br>
+  <br>
+  <div class="container-fluid gedf-wrapper">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card-oi">
+          <div class="card-body">
+            <div class="mr-1">
+              <img class="rounded-circle" width="100" src="avatar_humberto.avif" alt="">
+            </div>
+            <br>
+            <div class="h4">Humberto Nascimento Santos Junior</div>
+            <div class="h6 text-muted">Ciência Da Computação</div>
+            <div class="h7 text-muted">Asa Norte - 22208860
+            </div>
+            <div class="h8 text-muted">Turma B: 1 Semestre 2024
+            </div>
+          </div>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Curtidas</div>
+            <div class="h5">256</div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Comentários</div>
+            <div class="h5">256</div>
+          </li>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="h6 text-muted">Reclamações</div>
+              <div class="h5">20</div>
+            </li>
+            <li class="list-group-item">
+              <div class="h6 text-muted">Relatos de Achado e Perdidos</div>
+              <div class="h5">3</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 gedf-main">
+
+        <!--- \\\\\\\Post-->
+        <div class="card gedf-card">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
+                  aria-controls="posts" aria-selected="true">Fazer Publicação</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images"
+                  aria-selected="false" href="#images">Imagens</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  data-toggle="tab" role="tab" 
+                  aria-selected="false" >Tipo de Publicaçãõ</a>
+                  
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <div class="form-group">
+                  <label class="sr-only" for="message">post</label>
+                  <textarea class="form-control" id="message" rows="3" placeholder="O que deseja escrever?"></textarea>
+                </div>
+
+              </div>
+              <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Upload imagem</label>
+                  </div>
+                </div>
+                <div class="py-4"></div>
+              </div>
+            </div>
+            <div class="btn-toolbar justify-content-between">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Publicar</button>
+              </div>
+              <div class="btn-group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-globe"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+                  <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Friends</a>
+                  <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Just me</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Post /////-->
+        <br>
+        <!--- \\\\\\\Post-->
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img class="rounded-circle" width="45" src="avatar_maria.avif" alt="">
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0">@Maria</div>
+                  <div class="h7 text-muted">Bloco 01 Sala 1012</div>
+                </div>
+              </div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="card-body">
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 minutos Atrás</div>
+            <a class="card-link" href="#">
+              <h5 class="card-title">Computador Lento</h5>
+            </a>
+
+            <p class="card-text">
+              O computador do meu departamento está muito lento. Estamos trabalhando com softwares que exigem bastante
+              processamento, e a lentidão está afetando significativamente nossa produtividade. Uma atualização urgente
+              seria extremamente benéfica para otimizar nosso trabalho e evitar atrasos nos projetos.
+            </p>
+            <img class="card-img-top" src="win10.webp" alt="Card image cap">
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comentar</a>
+            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
+          </div>
+        </div>
+        <!-- Post /////-->
+
+        <br>
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img class="rounded-circle" width="45" src="avatar_ana.avif" alt="">
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0">@Ana</div>
+                  <div class="h7 text-muted">Bloco 04 Sala 4202</div>
+                </div>
+              </div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-body">
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 2 Dias Atrás</div>
+            <a class="card-link" href="#">
+              <h5 class="card-title">Ar-condicionado Quebrado</h5>
+            </a>
+
+            <p class="card-text">
+              O ar-condicionado do escritório está com problemas de temperatura. Mesmo com a configuração mais baixa, o
+              ambiente continua extremamente quente, o que torna difícil a concentração e o conforto dos funcionários.
+              Isso também pode afetar negativamente os equipamentos sensíveis ao calor, como os computadores. Uma
+              manutenção urgente é necessária para corrigir esse problema.
+            </p>
+            <img class="card-img-top" src="acidente-suporte-ar-condicionado-blog-do-frio.jpg" alt="Card image cap">
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+          </div>
+        </div>
+
+        <br>
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img class="rounded-circle" width="45" src="avatar_sofia.avif" alt="">
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0">@Sofia</div>
+                  <div class="h7 text-muted">Bloco 08 Sala 8003</div>
+                </div>
+              </div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="card-body">
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 minutos Atrás</div>
+            <a class="card-link" href="#">
+              <h5 class="card-title">Luzes Piscando!</h5>
+            </a>
+
+            <p class="card-text">
+              As luzes do corredor estão piscando constantemente. Essa intermitência é desconfortável para os olhos e
+              pode causar dores de cabeça em algumas pessoas. Além disso, a instabilidade na iluminação pode afetar a
+              segurança dos funcionários, especialmente durante a noite. Uma inspeção elétrica é necessária para
+              identificar e corrigir a causa desse problema.
+            </p>
+            <img class="card-img-top" src="luz_piiscando.webp" alt="Card image cap">
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+          </div>
+        </div>
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img class="rounded-circle" width="45" src="avatar_gui.avif" alt="">
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0">@Guilerme Cláudio</div>
+                  <div class="h7 text-muted">Bloco 02 Sala 2015</div>
+                </div>
+              </div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="card-body">
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>2 Dias Atrás</div>
+            <a class="card-link" href="#">
+              <h5 class="card-title">Encontrei Um Mouse</h5>
+            </a>
+
+            <p class="card-text">
+              "Pessoal, hoje de manhã encontrei um visitante inesperado na minha mesa: um mouse de verdade! Isso me
+              deixou preocupado com possíveis problemas de infestação. Vou relatar ao departamento responsável para
+              resolvermos essa questão e garantir um ambiente de trabalho seguro
+            </p>
+            <img class="card-img-top" src="mouse.webp" alt="Card image cap">
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+          </div>
+        </div>
+        <br><!--- \\\\\\\Post-->
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img class="rounded-circle" width="45" src="avatar_camila.avif" alt="">
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0">@Camila</div>
+                  <div class="h7 text-muted">Bloco 10 Sala 100023</div>
+                </div>
+              </div>
+              <div>
+                <div class="dropdown">
+                  <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-body">
+            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 1 semana Atrás</div>
+            <a class="card-link" href="#">
+              <h5 class="card-title">Baratas na Cozinha</h5>
+            </a>
+
+            <p class="card-text">
+              Encontrei baratas na cozinha novamente! Apesar das medidas de limpeza e prevenção adotadas, parece que o
+              problema persiste. Além do asco que isso causa, a presença de baratas na área de preparação de alimentos
+              representa um sério risco à saúde dos funcionários e clientes. É crucial que uma empresa de dedetização
+              seja chamada com urgência para resolver esse problema.
+            </p>
+            <img class="card-img-top" src="barata.avif" alt="Card image cap">
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+          </div>
+        </div>
+        <!-- Post /////-->
+        <br>
+
+        <br>
+        <div class="col-md-3">
+          <div class="card gedf-card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          <div class="card gedf-card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Scripts do Bootstrap e dependências -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
