@@ -1,11 +1,3 @@
-<div align="center">
-    <h1 style="display: inline;"># Projeto-Aurora</h1>
-    <img src="https://github.com/GuilhermeNobrega/GuilhermeNobrega/blob/main/Untitled.jpg" alt="Photo" width="200" style="display: inline;">
-</div>
-
-<div align="center">
-    <p>O projeto visa otimizar a comunicação entre os clientes e a empresa de energia, visando uma experiência mais eficiente e satisfatória para ambas as partes.</p>
-</div>
 
 <hr>
 
