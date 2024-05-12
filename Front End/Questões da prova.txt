@@ -1,0 +1,43 @@
+Questões da prova
+
+1– Diferença entre móvel e ubíqua
+
+Android:  5 questões
+
+sistema operacional(baseado)---> Kernel do Linux
+Utilização dele( diferentes dispositivos)
+Banco de Dados SQL Lite
+Arquitetura do android—> 2 questões
+Cinco camadas
+Android Runtime
+
+Aplicativo Android: 2 questões
+Principais desafios
+Arquivo R(Resource) 
+Arquivo Manifest
+Build Configuration: Gradle
+
+Tipos de Componentes:
+Vai ter uma pergunta
+
+
+Quatro pastas do android
+Nome das pastas e o que tem nela
+
+
+Log Cat(1 questão)--> erro
+
+setContentView(R.layout.activity_main);
+
+FindViewBYID()
+
+
+TextView tvBoasVindas; tvBoasVindas = (TextView)findViewById(R.id.tvBoasVindas); 
+
+
+EditText txtNome; txtNome = (EditText)findViewById(R.id.txtNome);
+
+
+Ciclo de vida da Activity→ Ciclo de vida
+O que é
+Quais são  eles e as características de cada um 
