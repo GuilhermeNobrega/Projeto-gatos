@@ -15,7 +15,12 @@
       background-size: cover;
       background-position: center;
     }
-
+    @media (max-width: 430px) {
+    .imagem_logo {
+      width: 270px; /* Define a largura da imagem como 10px */
+    }
+  }
+  
     @media screen and (max-width: 767px) {
       .card-oi {
         display: none;
@@ -119,7 +124,9 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
     <a class="navbar-brand text-white" href="#">
-      <img class="img-fluid" src="logo.png" alt="Logo" style="width: 15%;">
+      <div class="imagem_logo">
+        <img class="img-fluid" src="logo.png" alt="Logo" style="width: 15%;">
+      </div>
     </a>
     <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
       data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
