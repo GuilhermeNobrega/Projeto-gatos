@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pet Find</title>
-  <!-- Verifique se o caminho está correto -->
   <link rel="icon" href="Imagens/logo.png" type="image/png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="cover.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
+    rel="stylesheet">
   <style>
     body {
       background-image: url('uma-sala-branca-com-teto-curvo-e-um-reflexo-do-ceu_689904-113950.avif');
       background-size: cover;
       background-position: center;
     }
+
+
     @media (max-width: 430px) {
-    .imagem_logo {
-      width: 270px; /* Define a largura da imagem como 10px */
+      .imagem_logo {
+        width: 270px;
+      }
     }
-  }
-  
+
     @media screen and (max-width: 767px) {
       .card-oi {
         display: none;
       }
     }
 
+
     @media (min-width: 768px) {
       .card-oi {
         position: fixed;
         top: 40%;
         transform: translateY(-50%);
-      }
-
-
-      @media (min-width: 768px) {
-        .cards {
-          position: fixed;
-          top: 10%;
-          transform: translateX(50%);
-
-        }
       }
 
       .navbar {
@@ -59,19 +53,6 @@
       }
     }
 
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .cards {
-        margin-top: 150px;
-      }
-    }
-
-    @media (min-width: 1024px) and (max-width: 1080px) {
-      .cards {
-        margin-top: 160px;
-        padding-right: 28%;
-      }
-    }
-
     @media (min-width: 1080px) and (max-width: 1600px) {
       .card-oi {
         margin-top: 60px;
@@ -79,37 +60,25 @@
       }
     }
 
-    @media (min-width: 1080px) and (max-width: 1600px) {
-      .cards {
-        margin-top: 180px;
-        padding-right: 25%;
+
+    @media (min-width: 768px) {
+      .card_filtrar {
+        margin-top: 60px;
+        position: fixed;
       }
     }
 
-    @media (min-width: 1600px) and (max-width: 1780px) {
-      .cards {
-        margin-top: 180px;
-        padding-left: 30px;
-      }
-    }
-
-    @media (min-width: 1920px) {
-      .cards {
-
-        padding-left: 32%;
-      }
-    }
 
     .nav-link.nav-link-border {
       border-bottom: 3px solid transparent;
-      /* Linha inferior transparente */
+
       padding-bottom: 5px;
-      /* Espaçamento abaixo da linha */
+
     }
 
     .nav-link.nav-link-border.active {
       border-color: #E2DBD4;
-      /* Cor da linha ativa */
+
     }
 
     .custom-toggler .navbar-toggler-icon {
@@ -119,30 +88,31 @@
     .custom-toggler.navbar-toggler {
       border-color: rgb(238, 238, 238);
     }
+
     .navbar-nav .nav-link {
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
 
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #E2DBD4;
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.2s ease-in-out 0s;
-        }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #E2DBD4;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.2s ease-in-out 0s;
+    }
 
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link:focus::after,
-        .navbar-nav .nav-link.active::after {
-            visibility: visible;
-            transform: scaleX(1);
-        }
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link:focus::after,
+    .navbar-nav .nav-link.active::after {
+      visibility: visible;
+      transform: scaleX(1);
+    }
   </style>
 </head>
 
@@ -194,122 +164,101 @@
       </form>
     </div>
   </nav>
-
   <br>
   <br>
-  <div class="container-fluid gedf-wrapper">
+  <!-- Explicação:
+    -Código dividido em uma class="container-fluid".
+     -Dentro dela tem uma class ="row".
+      -Dentro dela tem três colunas:
+       -Primeira coluna é a col-3 responsavel pela filtragem dos Animais. 
+       -Segunda coluna é a col-6 responsavel por publicar e mostrar as publicações. 
+       -Terceira coluna é a col-3 Responsavel por mostrar o perfil e a quantidade de publicações, comentários e curtidas-->
+  <!-- Explicação:
+       -Uma linha Dividida em várias colunas.
+       -Resoluções Acima de 768px A coluna col-6 responsavel por publicar e mostrar as publcações se mantêm na posição fluída e as demais com a posição fixa.
+       -Resoluções Abaixo de 768px Abaixo a coluna de Perfil não existe,
+        e as outras tem uma posição fluída;-->
+  <div class="container-fluid">
     <div class="row">
+      <!-- Filtragens -->
       <div class="col-md-3">
-        <div class="card-oi">
-          <div class="card-body">
-            <div class="mr-1">
-              <img class="rounded-circle" width="100" src="Imagens/avatar_humberto.avif" alt="">
+        <div class="card-body ml-3">
+          <div class="card_filtrar">
+            <h4> Filtrar Por:</h4>
+            <hr>
+            <h5 class="card-title">Animais:</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Gato
+              </label>
             </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Cachorro
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Aves
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Roedores
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                todos
+              </label>
+            </div>
+            <hr>
+            <h5 class="card-title">Tipo de Publicação:</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Animais a Procura
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Animais Achados
+              </label>
+            </div>
+            <hr>
+            <h5 class="card-title">Localização:</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Estados:</h6>
+            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+              <option value="1">DF</option>
+              <option value="2">MG</option>
+              <option value="3">RJ</option>
+            </select>
             <br>
-            <div class="h4">Humberto Nascimento Santos Junior</div>
-          </div>
-          <li class="list-group-item">
-            <div class="h6 text-muted"> Minhas Publicacões</div>
-            <div class="h5">256</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Comentários</div>
-            <div class="h5">10</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Animais a procura</div>
-            <div class="h5">10</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Animais Achados</div>
-            <div class="h5">2</div>
-          </li>
-          </ul>
-        </div>
-      </div>
-      <div class="cards">
-        <div class=" container-fluid col-md-7">
-          <div class="card gedf-card">
-            <div class="card-body">
-              <h4> Filtrar Por:</h4>
-              <hr>
-              <h5 class="card-title">Animais:</h5>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Gato
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Cachorro
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Aves
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Roedores
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  todos
-                </label>
-              </div>
-
-              <hr>
-              <h5 class="card-title">Tipo de Publicação:</h5>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Animais a Procura
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  Animais Achados
-                </label>
-              </div>
-              <hr>
-              <h5 class="card-title">Localização:</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Estados:</h6>
-              <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                <option value="1">DF</option>
-                <option value="2">MG</option>
-                <option value="3">RJ</option>
-              </select>
-              <br>
-              <br>
-              <h6 class="card-subtitle mb-2 text-muted">Cidades:</h6>
-              <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                <option value="1">Brasilia</option>
-                <option value="2">Taguatinga</option>
-                <option value="3">Park way</option>
-              </select>
-              <br>
-              <br>
-              <button type="button" class="btn btn-secondary active ">Limpar</button>
-              <button type="submit" class="btn btn-primary active">Filtrar</button>
-              <p class="card-text" style="color: white;">Some quick example text to build on the card title and make up
-                the bulk of the card's content.</p>
-            </div>
+            <br>
+            <h6 class="card-subtitle mb-2 text-muted">Cidades:</h6>
+            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+              <option value="1">Brasilia</option>
+              <option value="2">Taguatinga</option>
+              <option value="3">Park way</option>
+            </select>
+            <br>
+            <br>
+            <button type="button" class="btn btn-secondary active ">Limpar</button>
+            <button type="submit" class="btn btn-primary active">Filtrar</button>
           </div>
         </div>
       </div>
-      <div class="col-md-6 gedf-main">
 
-        <!--- \\\\\\\Post-->
+      <!-- Publicações -->
+      <div class="col-md-6">
         <br>
-        <div class="card gedf-card">
+        <div class="card">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
               <li class="nav-item">
@@ -422,7 +371,7 @@
           </div>
         </div>
         <br>
-        <div class="card gedf-card">
+        <div class="card">
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex justify-content-between align-items-center">
@@ -432,14 +381,16 @@
                 <div class="ml-2">
                   <div class="h5 m-0">@Maria</div>
                   <p>
-                    <a href="https://www.google.com/maps?q=Parque+da+Cidade+Brasilia,+DF" target="_blank" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Parque da Cidade Brasília-DF</a>
+                    <a href="https://www.google.com/maps?q=Parque+da+Cidade+Brasilia,+DF" target="_blank"
+                      class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Parque
+                      da Cidade Brasília-DF</a>
                     <i class="bi bi-geo-alt"></i>
                   </p>
                 </div>
               </div>
               <div>
                 <div class="dropdown">
-                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
+                  <button class="btn btn-link dropdown" type="button" id="drop1" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-ellipsis-h"></i>
                   </button>
@@ -484,46 +435,48 @@
           </div>
           <div class="card-footer">
             <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-            <a href="#" class="card-link"  data-toggle="modal" data-target=".bd-example-modal-lg"></i> Comentar</a>
+            <a href="#" class="card-link" data-toggle="modal" data-target=".bd-example-modal-lg"></i> Comentar</a>
             <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
           </div>
-          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="card">
-                  <div class="card-header">        
+                  <div class="card-header">
                   </div>
                   <div class="card-body">
                     <div class="card">
-                      <div class="card-body">       
-                          <div class="mr-3">
-                            <img class="rounded-circle" width="30" src="Imagens/avatar_ana.avif" alt="">@Ana
-                          </div>
-                          <br>
-                          <div style="width: 14rem;">Onde vc achou esse cachorro?
-                            </div>      
+                      <div class="card-body">
+                        <div class="mr-3">
+                          <img class="rounded-circle" width="30" src="Imagens/avatar_ana.avif" alt="">@Ana
+                        </div>
+                        <br>
+                        <div style="width: 14rem;">Onde vc achou esse cachorro?
+                        </div>
                       </div>
                     </div>
                     <div class="card">
-                      <div class="card-body">       
+                      <div class="card-body">
                         <div class="mr-3">
                           <img class="rounded-circle" width="30" src="Imagens/avatar_maria.avif" alt="">@Maria
                         </div>
                         <br>
                         <div style="width: 14rem;">Achei perto do Lago, ele parece bastante assustado!
-                          </div>      
-                    </div>
+                        </div>
+                      </div>
                     </div>
                     <br>
                     <br>
                     <div class="row">
                       <div class="col-md-10">
-                        <textarea class="form-control" id="message" rows="1" placeholder="O que deseja comentar?"></textarea>
+                        <textarea class="form-control" id="message" rows="1"
+                          placeholder="O que deseja comentar?"></textarea>
                       </div>
                       <div class="col-md-2">
                         <button type="submit" class="btn btn-primary btn-block">Confirmar</button>
                       </div>
-                    </div>        
+                    </div>
                   </div>
                 </div>
               </div>
@@ -531,138 +484,37 @@
           </div>
         </div>
         <br>
-        <div class="card gedf-card">
-          <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="mr-2">
-                  <img class="rounded-circle" width="45" src="Imagens/avatar_ana.avif" alt="">
-                </div>
-                <div class="ml-2">
-                  <div class="h5 m-0">@Ana</div>
-                  <div class="h7 text-muted">Lago Paranoá/Brasilia-DF</div>
-                </div>
-              </div>
-              <div>
-                <div class="dropdown">
-                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-h"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 2 Dias Atrás</div>
-            <a class="card-link" href="#">
-              <h5 class="card-title">Cachorro Perdido perto do Lago Paranoá</h5>
-            </a>
-
-            <p class="card-text">
-              Encontrei este cachorrinho brincando perto do Lago Paranoá. Ele estava todo sujo e com fome. Levei-o ao
-              veterinário para verificar sua saúde e agora ele está se recuperando em minha casa. Mal posso esperar para
-              encontrar uma família amorosa para ele!
-            </p>
-            <img class="card-img-top" src="Imagens/cachorro_lago.jpg" alt="Card image cap">
-          </div>
-          <div class="card-footer">
-            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
-            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
-          </div>
-        </div>
-
         <br>
-        <div class="card gedf-card">
-          <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="mr-2">
-                  <img class="rounded-circle" width="45" src="Imagens/avatar_sofia.avif" alt="">
-                </div>
-                <div class="ml-2">
-                  <div class="h5 m-0">@Sofia</div>
-                  <div class="h7 text-muted">Rodoviaria Plano Piloto</div>
-                </div>
-              </div>
-              <div>
-                <div class="dropdown">
-                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-h"></i>
-                  </button>
-                </div>
-              </div>
+      </div>
+
+      <!-- Perfil -->
+      <div class="col-md-3">
+        <div class="card-oi">
+          <div class="card-body">
+            <div class="mr-1">
+              <img class="rounded-circle" width="100" src="Imagens/avatar_humberto.avif" alt="">
             </div>
             <br>
+            <div class="h4">Humberto Nascimento Santos Junior</div>
           </div>
-          <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 minutos Atrás</div>
-            <a class="card-link" href="#">
-              <h5 class="card-title">Gato Perdido na Rodoviária</h5>
-            </a>
-
-            <p class="card-text">
-              Hoje de manhã, enquanto esperava o ônibus perto da Rodoviária do Plano Piloto, ouvi miados vindos de uma
-              caixa de papelão. Dentro dela estava uma gatinha pequenina, com os olhos cheios de curiosidade. Levei-a ao
-              veterinário e agora ela está feliz em sua nova casa temporária!
-            </p>
-            <img class="card-img-top" src="Imagens/gato.webp" alt="Card image cap">
-          </div>
-          <div class="card-footer">
-            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
-            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
-          </div>
+          <li class="list-group-item">
+            <div class="h6 text-muted"> Minhas Publicacões</div>
+            <div class="h5">256</div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Comentários</div>
+            <div class="h5">10</div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Animais a procura</div>
+            <div class="h5">10</div>
+          </li>
+          <li class="list-group-item">
+            <div class="h6 text-muted">Animais Achados</div>
+            <div class="h5">2</div>
+          </li>
+          </ul>
         </div>
-        <div class="card gedf-card">
-          <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="mr-2">
-                  <img class="rounded-circle" width="45" src="Imagens/avatar_gui.avif" alt="">
-                </div>
-                <div class="ml-2">
-                  <div class="h5 m-0">@Guilerme Cláudio</div>
-                  <div class="h7 text-muted">Parque da Cidade/ Brasília-DF</div>
-                </div>
-              </div>
-              <div>
-                <div class="dropdown">
-                  <button class="btn btn-link dropdown" type="button" id="gedf-drop1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-h"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <br>
-          </div>
-          <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>2 Dias Atrás</div>
-            <a class="card-link" href="#">
-              <h5 class="card-title">Pássaro perdido no Parque da Cidade</h5>
-            </a>
-
-            <p class="card-text">
-
-              Hoje de manhã, enquanto estava no Parque da Cidade, encontrei este pássaro pequeno e frágil escondido
-              atrás de um arbusto. Ele parecia assustado e desnutrido. Levei-o ao veterinário para uma verificação e
-              agora está se recuperando em minha casa. Se alguém o estiver procurando, por favor, entre em contato. Caso
-              contrário, estou disposta a oferecer-lhe um lar amoroso.
-            </p>
-            <img class="card-img-top" src="Imagens/passaro.jpeg" alt="Card image cap">
-          </div>
-          <div class="card-footer">
-            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
-            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
-          </div>
-        </div>
-        <br><!--- \\\\\\\Post-->
-
       </div>
     </div>
   </div>
