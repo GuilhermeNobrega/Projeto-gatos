@@ -1,0 +1,26 @@
+body {
+    background-image: url('../Imagens/purplin.png');
+    background-size: cover;
+}
+
+/* Estilo para o card */
+.card {
+    width: 100%;
+
+}
+
+/* Estilo para a imagem no card */
+.card-img {
+    height: auto;
+    max-width: auto;
+    /* Garante que a imagem não ultrapasse o tamanho do card */
+}
+
+.imgg {
+    /* background-color: pink; */
+    padding: 0;
+    background-image: url('Imagens/logobranca.png');
+    background-size: cover;
+    margin: 0;
+    border: 0;
+}
