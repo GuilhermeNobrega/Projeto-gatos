@@ -8,45 +8,80 @@
 .custom-col{
     margin-top: 60px;
 }
-@media (width: 1920px) {
+.custom-col2{
+    margin-top: 60px;
+}
+
+@media (width: 2561px) {
+    .custom-col {
+        flex: 0 0 25%;
+        max-width: 25%;         
+    }
+    .custom-col2 {
+        flex: 0 0 50%;
+        max-width: 50%;           
+   }
+}
+
+@media (min-width: 2560px){
+    .custom-col {
+        flex: 0 0 25%;
+        max-width: 25%;         
+    }
+    .custom-col2 {
+        flex: 0 0 50%;
+        max-width: 50%;           
+   }
+}
+
+
+@media (min-width: 1920px) and (max-width: 2559px) {
     .custom-col {
         flex: 0 0 20%;
-        max-width: 25%;
-       
-        
+        max-width: 20%;         
     }
+    .custom-col2 {
+        flex: 0 0 60%;
+        max-width: 60%;           
+   }
 }
-@media (width: 1440px) {
+
+@media (min-width: 1440px) and (max-width: 1919px) {
     .custom-col {
         flex: 0 0 20%;
         max-width: 20%;
     }
+    .custom-col2 {
+        flex: 0 0 60%;
+        max-width: 60%;           
+   }
 }
 
-@media (width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
     .custom-col {
         flex: 0 0 30%;
         max-width: 30%;
+        margin-top: 80px; 
     }
+        .custom-col2 {
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-top: 80px;          
+   }
 }
 
-@media (width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px){
     .custom-col {
         flex: 0 0 40%;
         max-width: 40%;
     }
+    .custom-col2 {
+        flex: 0 0 55%;
+        max-width: 55%;
+               
+   }
 }
-@media (width: 375px) {
-    .custom-col {
-        flex: 0 0 40%;
-        max-width: 40%;
-    }
-    .edicao_nome{
-        margin-top: 50px;
-    }
-    
-}
-@media (max-width: 425px) {
+@media (min-width: 425px) and (max-width:767px) {
     .custom-col {
         flex: 0 0 100%;
         max-width: 100%;
@@ -56,6 +91,30 @@
     }
     
 }
+@media (min-width: 375px) and (max-width: 424px) {
+    .custom-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .edicao_nome{
+        margin-top: 50px;
+    }
+    
+}
+
+@media (max-width: 374px){
+    .custom-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 100px;
+    }
+    .edicao_nome{
+        margin-top: 25px;
+    }
+    
+}
+
+
 .nav-link.nav-link-border {
     border-bottom: 3px solid transparent;
   
@@ -115,3 +174,13 @@
     z-index: 1000;
   }
 
+  .form-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form-container {
+    width: 100%;
+    max-width: 500px; /* Ajuste conforme necessário */
+}
