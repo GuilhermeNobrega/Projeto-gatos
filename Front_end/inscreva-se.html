@@ -25,30 +25,28 @@
                             </center>
                             <h3>Cadastro</h3>
                             <br>
-                            <form>
-
+                            <form id="userForm">
                                 <div class="form-group">
                                     <label for="name">Nome completo <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="nome" required>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Usuário <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="user" required>
+                                    <input type="text" class="form-control" id="user" name="user" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="CEP">CEP <span class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" id="cep" required>
+                                    <input type="number" class="form-control" id="cep" name="cep" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="email" placeholder="email@exemplo.com"
-                                        required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="email@exemplo.com" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Senha <span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" id="password" required>
+                                    <input type="password" class="form-control" id="password" name="password" required>
                                 </div>
-
+                            
                                 <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
                             </form>
                             <hr class="mt-4 mb-4 border-secondary-subtle">
@@ -64,13 +62,48 @@
         </div>
     </section>
 
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const user = document.getElementById('user').value;
+            const cep = document.getElementById('cep').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            fetch('http://localhost:5000/create/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    cep: cep,
+                    email: email,
+                    senha: password,
+                    usuario: user
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Usuário criado com sucesso!');
+                } else {
+                    alert('Erro ao criar usuário.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
-
 
 
 

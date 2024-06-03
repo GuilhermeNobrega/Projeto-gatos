@@ -20,12 +20,14 @@ USE `mydb` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
+CREATE TABLE `mydb`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
+  `usuario` VARCHAR(100) NOT NULL,
   `nome` VARCHAR(100) NOT NULL,
   `senha` VARCHAR(25) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `cep` VARCHAR(8) NULL,
+  -- `role` 
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC) VISIBLE,
   UNIQUE INDEX `Email_UNIQUE` (`email` ASC) VISIBLE)

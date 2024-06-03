@@ -11,7 +11,7 @@ app.config['MYSQL_DB'] = 'mydb'
 
 mysql = MySQL(app)
 
-@app.route('/users', methods=['GET'])
+@app.route('/list/users', methods=['GET'])
 def get_users():
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT idUsuario, email, nome FROM Usuario")
@@ -35,7 +35,7 @@ def validate_login():
     if request.is_json:
         user = request.get_json()
         cursor = mysql.connection.cursor()
-        cursor.execute("SELECT nome FROM Usuario WHERE (email = %s OR nome = %s) AND senha = %s", (user['user'], user['user'], user['password']))
+        cursor.execute("SELECT nome FROM Usuario WHERE (email = %s OR usuario = %s) AND senha = %s", (user['user'], user['user'], user['password']))
         user = cursor.fetchone()
         cursor.close()
         if user:
@@ -46,7 +46,7 @@ def validate_login():
         return jsonify({"error": "Request must be JSON"}), 400
 
 
-@app.route('/list_user_posts', methods=['POST'])
+@app.route('/list/user_posts', methods=['POST'])
 def list_user_posts():
     if request.is_json:
         vars = request.get_json()
@@ -61,7 +61,7 @@ def list_user_posts():
     else:
         return jsonify({"error": "Request must be JSON"}), 400
 
-@app.route('/list_all_posts', methods=['GET'])
+@app.route('/list/all_posts', methods=['GET'])
 def list_all_posts():
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT idPublicacao, local, especie, cor, raca, sexo, pelagem, porte, descricao FROM Publicacao")
@@ -77,15 +77,16 @@ def list_all_posts():
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-@app.route('/user', methods=['POST'])
+@app.route('/create/user', methods=['POST'])
 def add_user():
     if request.is_json:
-        user = request.get_json()
+        vars = request.get_json()
         cursor = mysql.connection.cursor()
-        cursor.execute("INSERT INTO users (name, role) VALUES (%s, %s)", (user['name'], user['role']))
+        print(vars['cep'], vars['email'], vars['senha'], vars['nome'], vars['usuario'])
+        cursor.execute("INSERT INTO Usuario (cep, email, senha, nome, usuario) VALUES (%s, %s, %s, %s, %s)", (vars['cep'], vars['email'], vars['senha'], vars['nome'], vars['usuario']))
         mysql.connection.commit()
         cursor.close()
-        return jsonify(user), 201
+        return jsonify(vars['cep'], vars['email'], vars['senha'], vars['nome'], vars['usuario']), 201
     else:
         return jsonify({"error": "Request must be JSON"}), 400
 
