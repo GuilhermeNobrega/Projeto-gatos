@@ -12,6 +12,10 @@ def index():
 def inscreva_se():
     return render_template('inscreva-se.html')
 
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
