@@ -1,5 +1,5 @@
 body {
-    background-image: url("{{ url_for('static', filename='Imagens/Purplin.png') }}");
+    background-image: url('../Imagens/purplin.png');
     background-size: cover;
 }
 
