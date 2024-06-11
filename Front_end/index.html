@@ -1,476 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Find</title>
-  <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Find</title>
+    <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
-    rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
-    <a class="navbar-brand text-white" href="{{ url_for('home') }}">
-      <div class="imagem_logo">
-        <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo" style="width: 15%;">
-      </div>
-    </a>
-    <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
-      data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-      aria-label="Alterna navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
+        <a class="navbar-brand text-white" href="{{ url_for('home') }}">
+            <div class="imagem_logo">
+                <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo"
+                    style="width: 15%;">
+            </div>
+        </a>
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
+            data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('home') }}" style="color: #E2DBD4;">Home <span class="sr-only">(página
-              atual)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('index') }}" style="color: #E2DBD4;">Publicações</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('login') }}" style="color: #E2DBD4;">Login</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('inscreva_se') }}" style="color: #E2DBD4;">Inscrever-se</a>
-        </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" style="color:#E2DBD4;" href="#" id="navbarDropdownPerfil" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Perfil
-          </a>
-          <div class="dropdown-menu" style="background-color:#5b287c;" aria-labelledby="navbarDropdownPerfil">
-            <a class="dropdown-item" style="color:#E2DBD4;" href="{{ url_for('perfil') }}">Dados Pessoais</a>
-            <a class="dropdown-item" style="color:#E2DBD4;" href="{{ url_for('perfil') }}">Configurações</a>
-          </div>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="#" style="color: #E2DBD4;">Sobre Nós</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
-      </form>
-    </div>
-  </nav>
-  <br>
-  <br>
-  <!-- Explicação:
-    -Código dividido em uma class="container-fluid".
-     -Dentro dela tem uma class ="row".
-      -Dentro dela tem três colunas:
-       -Primeira coluna é a col-3 responsavel pela filtragem dos Animais. 
-       -Segunda coluna é a col-6 responsavel por publicar e mostrar as publicações. 
-       -Terceira coluna é a col-3 Responsavel por mostrar o perfil e a quantidade de publicações, comentários e curtidas-->
-  <!-- Explicação:
-       -Uma linha Dividida em várias colunas.
-       -Resoluções Acima de 768px A coluna col-6 responsavel por publicar e mostrar as publcações se mantêm na posição fluída e as demais com a posição fixa.
-       -Resoluções Abaixo de 768px Abaixo a coluna de Perfil não existe,
-        e as outras tem uma posição fluída;-->
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Filtragens -->
-      <div class="col-md-3">
-          <div class="card_filtrar">
-            <div class="card ">
-            <h4 class="card-header"> Filtrar Por:</h4>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-7">
-                <h5 class="card-title">Tipo de Publicação:</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Animais a Procura
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Animais Achados
-                  </label>
-                </div>
-              </div>
-              <div class="col-md-5">
-                <h5 class="card-title">Animais:</h5>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Gato
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Cachorro
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Aves
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Roedores
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    todos
-                  </label>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <h5 class="card-title">Características:</h5>
-            <div class="row">
-              <div class="col-md-6">
-                <h6 class="card-subtitle mb-2 text-muted">Raça:</h6>
-            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-              <option value="1">Preto</option>
-              <option value="2">Branco</option>
-              <option value="3">Pardo</option>
-              <option value="3">caramelo</option>
-              <option value="3">cinza</option>
-              <option value="3">Amarelo</option>
-            </select>
-            <br>
-            <h6 class="card-subtitle mb-2 text-muted">Cor:</h6>
-            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-              <option value="1">Preto</option>
-              <option value="2">Branco</option>
-              <option value="3">Pardo</option>
-              <option value="3">caramelo</option>
-              <option value="3">cinza</option>
-              <option value="3">Amarelo</option>
-            </select>
-            </div>
-            <div class="col-md-6">
-              <h6 class="card-subtitle mb-2 text-muted">Sexo:</h6>
-              <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                <option value="1">Masculino</option>
-                <option value="2">Feminimo</option>
-              </select>
-              <br>
-              <h6 class="card-subtitle mb-2 text-muted">Porte:</h6>
-              <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-                <option value="1">Grande</option>
-                <option value="2">Médio</option>
-                <option value="3">Pequeno</option>
-              </select>
-              <br>
-            </div>
-            </div>
-            <br>
-            <hr>
-            <div class="row">
-              <div class="col-sm-">
-                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-              </div>
-
-            </div>
-            <br>
-            <br>
-            <h6 class="card-subtitle mb-2 text-muted">Cidades:</h6>
-            <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
-              <option value="1">Brasilia</option>
-              <option value="2">Taguatinga</option>
-              <option value="3">Park way</option>
-            </select>
-            <br>
-            <br>
-            <button type="button" class="btn btn-secondary active ">Limpar</button>
-            <button type="submit" class="btn btn-primary active">Filtrar</button>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      <!-- Publicações -->
-      <div class="col-md-6">
-        <br>
-        <div class="card">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
-                  aria-controls="posts" aria-selected="true">Fazer Publicação</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images"
-                  aria-selected="false" href="#images">Imagens</a>
-              </li>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('home') }}" style="color: #E2DBD4;">Home <span
+                            class="sr-only">(página
+                            atual)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('index') }}"
+                        style="color: #E2DBD4;">Publicações</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('login') }}" style="color: #E2DBD4;">Login</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('inscreva_se') }}"
+                        style="color: #E2DBD4;">Inscrever-se</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" style="color:#E2DBD4;" href="#" id="navbarDropdownPerfil"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Perfil
+                    </a>
+                    <div class="dropdown-menu" style="background-color:#5b287c;" aria-labelledby="navbarDropdownPerfil">
+                        <a class="dropdown-item" style="color:#E2DBD4;" href="{{ url_for('perfil') }}">Dados
+                            Pessoais</a>
+                        <a class="dropdown-item" style="color:#E2DBD4;" href="{{ url_for('perfil') }}">Configurações</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="#" style="color: #E2DBD4;">Sobre Nós</a>
+                </li>
             </ul>
-          </div>
-          <div class="card-body">
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                <div class="form-group">
-                  <div class="d-flex justify-content-between">
-                    <div class="card-body">
-                      <h5 class="card-title">Selecione o Tipo do Animal:</h5>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          Gato
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          Cachorro
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          Aves
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                        <label class="form-check-label" for="flexCheckChecked">
-                          Roedores
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class="card-body">
-                      <h5 class="card-title">Tipo de Publicação:</h5>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                          data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Animal(s) a Procura
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                          data-toggle="collapse" data-target="#collapseExample" aria-expanded="true">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Animal(s) Achados
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="collapse" id="collapseExample">
-                    <hr>
-                    <h5>Ultima Localização do Animal:</h5>
-                    <form>
-                      <div class="form-row">
-                        <div class="col-4">
-                          <input type="text" class="form-control" placeholder="Cidade">
-                        </div>
-                        <div class="col-2">
-                          <input type="text" class="form-control" placeholder="Estado">
-                        </div>
-                        <div class="col-2">
-                          <input type="text" class="form-control" placeholder="CEP">
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <hr>
-                  <h5>Título da Publicação:</h5>
-                  <label class="sr-only" for="message">post</label>
-                  <textarea class="form-control" id="message" rows="1" placeholder="Escreva o titulo da publicação:"></textarea>
-                  <hr>
-                  <h5>Descrição:</h5>
-                  <label class="sr-only" for="message">post</label>
-                  <textarea class="form-control" id="message" rows="3" placeholder="O que deseja escrever?"></textarea>
-                </div>
-
-              </div>
-              <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-                <div class="form-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Upload imagem</label>
-                  </div>
-                </div>
-                <div class="py-4"></div>
-              </div>
-            </div>
-            <div class="btn-toolbar justify-content-between">
-              <div class="btn-group">
-                <button type="submit" class="btn btn-primary">Publicar</button>
-              </div>
-              <div class="btn-group">
-
-                <i class="fa fa-globe"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                </div>
-              </div>
-            </div>
-          </div>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
         </div>
-        <br>
-        <div class="card">
-          <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="mr-1">
-                  <img class="rounded-circle" width="45" src="{{ url_for('static', filename='Imagens/avatar_maria.avif') }}" alt="">
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-12">
+                <div class="card-body">
+                    <div class="card_filtro">
+                        <div class="card ">
+                            <h4 class="card-header"> Filtrar Por:</h4>
+                            <div class="card-body">
+                                <h5 class="card-title">Tipo de Publicação:</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Animais a Procura
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Animais Achados
+                                    </label>
+                                </div>
+                                <hr>
+                                <h5 class="card-title">Animais:</h5>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Gato
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Cachorro
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Aves
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Roedores
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        todos
+                                    </label>
+                                </div>
+                                <hr>
+                                <h5 class="card-title">Características:</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Raça:</h6>
+                                <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                                    <option value="1">Preto</option>
+                                    <option value="2">Branco</option>
+                                    <option value="3">Pardo</option>
+                                    <option value="3">caramelo</option>
+                                    <option value="3">cinza</option>
+                                    <option value="3">Amarelo</option>
+                                </select>
+                                <br>
+                                <h6 class="card-subtitle mb-2 text-muted">Cor:</h6>
+                                <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                                    <option value="1">Preto</option>
+                                    <option value="2">Branco</option>
+                                    <option value="3">Pardo</option>
+                                    <option value="3">caramelo</option>
+                                    <option value="3">cinza</option>
+                                    <option value="3">Amarelo</option>
+                                </select>
+                                <h6 class="card-subtitle mb-2 text-muted">Sexo:</h6>
+                                <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Feminimo</option>
+                                </select>
+                                <br>
+                                <h6 class="card-subtitle mb-2 text-muted">Porte:</h6>
+                                <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                                    <option value="1">Grande</option>
+                                    <option value="2">Médio</option>
+                                    <option value="3">Pequeno</option>
+                                </select>
+                                <br>
+                                <hr>
+                                <h5 class="card-title" >Localização:</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">UF:</h6>
+                                <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                                    <option value="1">DF</option>
+                                    <option value="2">RJ</option>
+                                    <option value="3">SP</option>
+                                </select>
+                                <br>
+                                <br>
+                                <h6 class="card-subtitle mb-2 text-muted">Cidades:</h6>
+                                <select class="form-select form-select-lg mb-1" aria-label=".form-select-lg example">
+                                    <option value="1">Brasilia</option>
+                                    <option value="2">Taguatinga</option>
+                                    <option value="3">Park way</option>
+                                </select>
+                                <br>
+                                <br>
+                                <button type="button" class="btn btn-secondary active ">Limpar</button>
+                                <button type="submit" class="btn btn-primary active">Filtrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ml-2">
-                  <div class="h5 m-0">@Maria</div>
-                  <p>
-                    <a href="https://www.google.com/maps?q=Parque+da+Cidade+Brasilia,+DF" target="_blank"
-                      class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Parque
-                      da Cidade Brasília-DF</a>
-                    <i class="bi bi-geo-alt"></i>
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div class="dropdown">
-                  <button class="btn btn-link dropdown" type="button" id="drop1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-h"></i>
-                  </button>
-                </div>
-              </div>
             </div>
-            <br>
-          </div>
-          <div class="card-body">
-            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 minutos Atrás</div>
-            <a class="card-link" href="#">
-              <h5 class="card-title">Gato Perdido no Parque da cidade</h5>
-            </a>
-
-            <p class="card-text">
-              Ontem, enquanto caminhava perto do Parque da Cidade, encontrei esse gatinho adorável escondido sob um
-              arbusto. Ele parecia assustado, mas depois de um pouco de paciência e algumas guloseimas, ele se aproximou
-              e agora não quer sair do meu colo! Estou tão feliz por termos nos encontrado.
-            </p>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block w-100" src="{{ url_for('static', filename='Imagens/cachorro_perdido.jpg') }}" alt="Primeiro Slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="{{ url_for('static', filename='Imagens/gato.webp') }}" alt="Terceiro Slide">
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Próximo</span>
-              </a>
-            </div>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-            <a href="#" class="card-link" data-toggle="modal" data-target=".bd-example-modal-lg"></i> Comentar</a>
-            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
-          </div>
-          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
+            <div class="col-md-6 col-12">
                 <div class="card">
-                  <div class="card-header">
-                  </div>
-                  <div class="card-body">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="mr-3">
-                          <img class="rounded-circle" width="30" src="{{ url_for('static', filename='Imagens/avatar_ana.avif') }}" alt="">@Ana
-                        </div>
-                        <br>
-                        <div style="width: 14rem;">Onde vc achou esse cachorro?
-                        </div>
-                      </div>
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
+                                    aria-controls="posts" aria-selected="true">Fazer Publicação</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images"
+                                    aria-selected="false" href="#images">Imagens</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="mr-3">
-                          <img class="rounded-circle" width="30" src="{{ url_for('static', filename='Imagens/avatar_maria.avif') }}" alt="">@Maria
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel"
+                                aria-labelledby="posts-tab">
+                                <div class="form-group">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Selecione o Tipo do Animal:</h5>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Gato
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Cachorro
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Aves
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Roedores
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tipo de Publicação:</h5>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault1" data-toggle="collapse"
+                                                    data-target="#collapseExample" aria-expanded="false">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Animal(s) a Procura
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    id="flexRadioDefault2" data-toggle="collapse"
+                                                    data-target="#collapseExample" aria-expanded="true">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Animal(s) Achados
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse" id="collapseExample">
+                                        <hr>
+                                        <h5>Ultima Localização do Animal:</h5>
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col-4">
+                                                    <input type="text" class="form-control" placeholder="Cidade">
+                                                </div>
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control" placeholder="Estado">
+                                                </div>
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control" placeholder="CEP">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <hr>
+                                    <h5>Título da Publicação:</h5>
+                                    <label class="sr-only" for="message">post</label>
+                                    <textarea class="form-control" id="message" rows="1"
+                                        placeholder="Escreva o titulo da publicação:"></textarea>
+                                    <hr>
+                                    <h5>Descrição:</h5>
+                                    <label class="sr-only" for="message">post</label>
+                                    <textarea class="form-control" id="message" rows="3"
+                                        placeholder="O que deseja escrever?"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Upload imagem</label>
+                                    </div>
+                                </div>
+                                <div class="py-4"></div>
+                            </div>
                         </div>
-                        <br>
-                        <div style="width: 14rem;">Achei perto do Lago, ele parece bastante assustado!
+                        <div class="btn-toolbar justify-content-between">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">Publicar</button>
+                            </div>
+                            <div class="btn-group">
+
+                                <i class="fa fa-globe"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <br>
-                    <br>
-                    <div class="row">
-                      <div class="col-md-10">
-                        <textarea class="form-control" id="message" rows="1"
-                          placeholder="O que deseja comentar?"></textarea>
-                      </div>
-                      <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary btn-block">Confirmar</button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
-      </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="mr-1">
+                                    <img class="rounded-circle" width="45"
+                                        src="{{ url_for('static', filename='Imagens/avatar_maria.avif') }}" alt="">
+                                </div>
+                                <div class="ml-2">
+                                    <div class="h5 m-0">@Maria</div>
+                                    <p>
+                                        <a href="https://www.google.com/maps?q=Parque+da+Cidade+Brasilia,+DF"
+                                            target="_blank"
+                                            class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Parque
+                                            da Cidade Brasília-DF</a>
+                                        <i class="bi bi-geo-alt"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown" type="button" id="drop1"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 minutos Atrás</div>
+                        <a class="card-link" href="#">
+                            <h5 class="card-title">Gato Perdido no Parque da cidade</h5>
+                        </a>
 
-      <!-- Perfil -->
-      <div class="col-md-3">
-        <div class="card-oi">
-          <div class="card-body">
-            <div class="mr-1">
-              <img class="rounded-circle" width="100" src="{{ url_for('static', filename='Imagens/avatar_humberto.avif') }}" alt="">
+                        <p class="card-text">
+                            Ontem, enquanto caminhava perto do Parque da Cidade, encontrei esse gatinho adorável
+                            escondido sob um
+                            arbusto. Ele parecia assustado, mas depois de um pouco de paciência e algumas guloseimas,
+                            ele se aproximou
+                            e agora não quer sair do meu colo! Estou tão feliz por termos nos encontrado.
+                        </p>
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100"
+                                        src="{{ url_for('static', filename='Imagens/cachorro_perdido.jpg') }}"
+                                        alt="Primeiro Slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100"
+                                        src="{{ url_for('static', filename='Imagens/gato.webp') }}"
+                                        alt="Terceiro Slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Anterior</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Próximo</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+                        <a href="#" class="card-link" data-toggle="modal" data-target=".bd-example-modal-lg"></i>
+                            Comentar</a>
+                        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Compartilhar</a>
+                    </div>
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="card">
+                                    <div class="card-header">
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mr-3">
+                                                    <img class="rounded-circle" width="30"
+                                                        src="{{ url_for('static', filename='Imagens/avatar_ana.avif') }}"
+                                                        alt="">@Ana
+                                                </div>
+                                                <br>
+                                                <div style="width: 14rem;">Onde vc achou esse cachorro?
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mr-3">
+                                                    <img class="rounded-circle" width="30"
+                                                        src="{{ url_for('static', filename='Imagens/avatar_maria.avif') }}"
+                                                        alt="">@Maria
+                                                </div>
+                                                <br>
+                                                <div style="width: 14rem;">Achei perto do Lago, ele parece bastante
+                                                    assustado!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <textarea class="form-control" id="message" rows="1"
+                                                    placeholder="O que deseja comentar?"></textarea>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit"
+                                                    class="btn btn-primary btn-block">Confirmar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br>
-            <div class="h4">Humberto Nascimento Santos Junior</div>
-          </div>
-          <li class="list-group-item">
-            <div class="h6 text-muted"> Minhas Publicacões</div>
-            <div class="h5">256</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Comentários</div>
-            <div class="h5">10</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Animais a procura</div>
-            <div class="h5">10</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">Animais Achados</div>
-            <div class="h5">2</div>
-          </li>
-          </ul>
+            <div class="col-md-3 col-12">
+                <div class="card-body">
+                    <div class="card_perfil">
+                        <div class="card ">
+                            <div class="card-body">
+                                <div class="mr-1">
+                                    <img class="rounded-circle" width="100"
+                                        src="{{ url_for('static', filename='Imagens/avatar_humberto.avif') }}" alt="">
+                                </div>
+                                <br>
+                                <div class="h4">Humberto Nascimento Santos Junior</div>
+                            </div>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted"> Minhas Publicacões</div>
+                                <div class="h5">256</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">Comentários</div>
+                                <div class="h5">10</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">Animais a procura</div>
+                                <div class="h5">10</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">Animais Achados</div>
+                                <div class="h5">2</div>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  </div>
 
-
-  <!-- Scripts do Bootstrap e dependências -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -24,6 +24,10 @@ def login():
 def perfil():
     return render_template('perfil.html')
 
+@app.route('/teste')
+def teste():
+    return render_template('teste.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
