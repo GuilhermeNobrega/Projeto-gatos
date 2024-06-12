@@ -97,7 +97,7 @@ def add_user():
     if request.is_json:
         vars = request.get_json()
         cursor = mysql.connection.cursor()
-        print(vars['cep'], vars['email'], vars['senha'], vars['nome'], vars['usuario'])
+        # print(vars['cep'], vars['email'], vars['senha'], vars['nome'], vars['usuario'])
         cursor.execute("INSERT INTO User (cep, email, password, completeName, userName) VALUES (%s, %s, %s, %s, %s)", (vars['cep'], vars['email'], vars['password'], vars['completeName'], vars['userName']))
         mysql.connection.commit()
         cursor.close()
