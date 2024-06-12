@@ -73,7 +73,7 @@ def list_all_posts():
         return jsonify({"msg": "No posts to share with this user"}), 400
 
 @app.route('/list/all_comments_from_post', methods=['POST'])
-def list_all_posts():
+def list_all_comments_from_posts():
     if request.is_json:
         vars = request.get_json()
         cursor = mysql.connection.cursor()
