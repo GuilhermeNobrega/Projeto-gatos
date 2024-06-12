@@ -77,7 +77,7 @@ def list_all_comments_from_posts():
     if request.is_json:
         vars = request.get_json()
         cursor = mysql.connection.cursor()
-        cursor.execute("SELECT * FROM Comments WHERE fkIdPost = %s", (vars['fkIdPost']))
+        cursor.execute("SELECT * FROM Comments WHERE fkIdPost = %s", (int(vars['fkIdPost'])))
         posts = cursor.fetchall()
         cursor.close()
         if posts:
