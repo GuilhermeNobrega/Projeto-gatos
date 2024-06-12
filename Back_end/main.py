@@ -23,7 +23,7 @@ def get_users():
 # def get_user(user_id):
 #     cursor = mysql.connection.cursor()
 #     cursor.execute("SELECT nome FROM Usuario WHERE id = %s", (user_id,))
-#     user = cursor.fetchone()
+#     user = cursor.fetchall()
 #     cursor.close()
 #     if user:
 #         return jsonify(user)
@@ -36,7 +36,7 @@ def validate_login():
         user = request.get_json()
         cursor = mysql.connection.cursor()
         cursor.execute("SELECT userName, completeName, pathUserImage, email, cep FROM User WHERE (email = %s OR userName = %s) AND password = %s", (user['user'], user['user'], user['password']))
-        user = cursor.fetchone()
+        user = cursor.fetchall()
         cursor.close()
         if user:
             return jsonify({"msg": "Authenticated"}), 200
@@ -52,7 +52,7 @@ def list_user_posts():
         vars = request.get_json()
         cursor = mysql.connection.cursor()
         cursor.execute("SELECT * FROM Post WHERE fkIdUser = %s", (vars['userId']))
-        posts = cursor.fetchone()
+        posts = cursor.fetchall()
         cursor.close()
         if posts:
             return jsonify(posts), 200
@@ -65,7 +65,7 @@ def list_user_posts():
 def list_all_posts():
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM Post")
-    posts = cursor.fetchone()
+    posts = cursor.fetchall()
     cursor.close()
     if posts:
         return jsonify(posts), 200
@@ -78,7 +78,7 @@ def list_all_comments_from_posts():
         vars = request.get_json()
         cursor = mysql.connection.cursor()
         cursor.execute("SELECT * FROM Comments WHERE fkIdPost = %s", (vars['fkIdPost']))
-        posts = cursor.fetchone()
+        posts = cursor.fetchall()
         cursor.close()
         if posts:
             return jsonify(posts), 200
