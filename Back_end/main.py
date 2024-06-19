@@ -39,7 +39,7 @@ def get_users_by_id():
                 "userName": userInfo[0][2],
                 "completeName": userInfo[0][3],
                 "pathUserImage": userInfo[0][4],
-                "cep": userInfo[5]
+                "cep": userInfo[0][5]
             }
             return jsonify(user_dict), 200
         else:
