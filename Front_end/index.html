@@ -119,7 +119,7 @@
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify({ user: post.postOwnerUserId })
+                            body: JSON.stringify({ idUser: post.postOwnerUserId })
                         });
                         const postOwnerUserName = postOwnerUserData.completeName
                         postElement.innerHTML = `
