@@ -23,6 +23,35 @@ def get_users():
     cursor.close()
     return jsonify(users)
 
+@app.route('/list/users/byid', methods=['POST'])
+def get_users_by_id():
+    if request.is_json:
+        user = request.get_json()
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT idUser, email, userName, completeName, pathUserImage cep FROM User WHERE idUser = %s", (user['idUser']))
+        userInfo = cursor.fetchall()
+        cursor.close()
+        if userInfo:
+            # Transforma o resultado da consulta em um dicionário
+            user_dict = {
+                "idUser": userInfo[0][0],
+                "userName": userInfo[0][1],
+                "completeName": userInfo[0][2],
+                "pathUserImage": userInfo[0][3],
+                "email": userInfo[0][4],
+                "cep": userInfo[0][5]
+            }
+            return jsonify(user_dict), 200
+        else:
+            return jsonify({"msg": "User not found"}), 404
+    else:
+        return jsonify({"error": "Request must be JSON"}), 400
+    cursor = mysql.connection.cursor()
+    cursor.execute("SELECT idUser, email, userName, completeName, cep FROM User")
+    users = cursor.fetchall()
+    cursor.close()
+    return jsonify(users)
+
 # @app.route('/user/<int:user_id>', methods=['GET'])
 # def get_user(user_id):
 #     cursor = mysql.connection.cursor()
