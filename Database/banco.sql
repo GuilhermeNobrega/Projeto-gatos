@@ -29,7 +29,7 @@ USE `petfind` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `petfind`.`User` (
   `idUser` INT NOT NULL AUTO_INCREMENT,
-  `userName` VARCHAR(10) NOT NULL,
+  `userName` VARCHAR(50) NOT NULL,
   `completeName` VARCHAR(45) NOT NULL,
   `pathUserImage` VARCHAR(100),
   `email` VARCHAR(45) NOT NULL,
@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `petfind`.`Post` (
   `animalGender` VARCHAR(45) NOT NULL,
   `animalColor` VARCHAR(45) NOT NULL,
   `animalSize` VARCHAR(45) NOT NULL,
+  `datePosted` DATETIME NOT NULL,
   PRIMARY KEY (`idPost`),
   UNIQUE INDEX `idPost_UNIQUE` (`idPost` ASC) VISIBLE,
   INDEX `fkUserId_idx` (`fkIdUser` ASC) VISIBLE,
@@ -67,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `petfind`.`Post` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `petfind`.`Comments`
@@ -138,11 +138,18 @@ VALUES
 ('user9', 'User Nine', '/images/user9.png', 'user9@example.com', 'pass1234', 12345),
 ('user10', 'User Ten', '/images/user10.png', 'user10@example.com', 'pass1234', 12345);
 
-INSERT INTO `petfind`.`Post` (`title`, `description`, `imagesPath`, `fkIdUser`, `localization`, `publiType`, `animalName`, `animalSpecie`, `animalGender`, `animalColor`, `animalSize`)
+INSERT INTO `petfind`.`Post` (`title`, `description`, `imagesPath`, `fkIdUser`, `localization`, `publiType`, `animalName`, `animalSpecie`, `animalGender`, `animalColor`, `animalSize`, `datePosted`)
 VALUES
-('Lost Dog', 'Small brown dog lost in the park', '/images/post1.png', 1, 'Park City', 'Lost', 'Buddy', 'Dog', 'Male', 'Brown', 'Small'),
-('Found Cat', 'Found a black and white cat', '/images/post2.png', 2, 'Downtown', 'Found', 'Whiskers', 'Cat', 'Female', 'Black and White', 'Medium');
--- Adicione mais 8 posts seguindo o padrão acima, alterando os valores conforme necessário
+('Lost Dog', 'Small brown dog lost in the park', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 1, 'Park City', 'Lost', 'Buddy', 'Dog', 'Male', 'Brown', 'Small', '2024-06-07 14:00:00'),
+('Found Cat', 'Found a black and white cat', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 2, 'Downtown', 'Found', 'Whiskers', 'Cat', 'Female', 'Black and White', 'Medium', '2024-06-07 15:00:00'),
+('Missing Parrot', 'Green parrot missing near downtown area', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 3, 'Downtown', 'Lost', 'Polly', 'Parrot', 'Male', 'Green', 'Small', '2024-06-08 09:00:00'),
+('Found Dog', 'Golden retriever found near the river side', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 4, 'River Side', 'Found', 'Goldie', 'Dog', 'Female', 'Golden', 'Large', '2024-06-08 10:00:00'),
+('Lost Cat', 'Grey cat lost last night', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 5, 'Suburbs', 'Lost', 'Shadow', 'Cat', 'Male', 'Grey', 'Medium', '2024-06-08 11:00:00'),
+('Found Bird', 'Small bird found in the garden', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 6, 'Garden Area', 'Found', 'Tweety', 'Bird', 'Female', 'Yellow', 'Small', '2024-06-08 12:00:00'),
+('Lost Dog', 'Black labrador missing', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 7, 'Park City', 'Lost', 'Blacky', 'Dog', 'Male', 'Black', 'Large', '2024-06-08 13:00:00'),
+('Found Cat', 'White cat found sleeping in a barn', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 8, 'Old Town', 'Found', 'Snowy', 'Cat', 'Female', 'White', 'Medium', '2024-06-08 14:00:00'),
+('Lost Rabbit', 'White rabbit lost in the neighborhood', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 9, 'Hilltop', 'Lost', 'Bunny', 'Rabbit', 'Male', 'White', 'Small', '2024-06-08 15:00:00'),
+('Found Dog', 'Husky with blue eyes found wandering streets', 'https://storage.cloud.google.com/post-images-petfind/gatocachorro.jpg', 10, 'Downtown', 'Found', 'Sky', 'Dog', 'Male', 'Grey', 'Large', '2024-06-08 16:00:00');
 
 
 INSERT INTO `petfind`.`Comments` (`text`, `fkIdPost`, `fkIdUser`)
@@ -157,18 +164,6 @@ VALUES
 (2, 'Dislike', 1);
 -- Adicione mais 8 reações seguindo o padrão acima, alterando os valores conforme necessário
 
-
--- Adicionando mais posts
-INSERT INTO `petfind`.`Post` (`title`, `description`, `imagesPath`, `fkIdUser`, `localization`, `publiType`, `animalName`, `animalSpecie`, `animalGender`, `animalColor`, `animalSize`)
-VALUES
-('Missing Parrot', 'Green parrot missing near downtown area', '/images/post3.png', 3, 'Downtown', 'Lost', 'Polly', 'Parrot', 'Male', 'Green', 'Small'),
-('Found Dog', 'Golden retriever found near the river side', '/images/post4.png', 4, 'River Side', 'Found', 'Goldie', 'Dog', 'Female', 'Golden', 'Large'),
-('Lost Cat', 'Grey cat lost last night', '/images/post5.png', 5, 'Suburbs', 'Lost', 'Shadow', 'Cat', 'Male', 'Grey', 'Medium'),
-('Found Bird', 'Small bird found in the garden', '/images/post6.png', 6, 'Garden Area', 'Found', 'Tweety', 'Bird', 'Female', 'Yellow', 'Small'),
-('Lost Dog', 'Black labrador missing', '/images/post7.png', 7, 'Park City', 'Lost', 'Blacky', 'Dog', 'Male', 'Black', 'Large'),
-('Found Cat', 'White cat found sleeping in a barn', '/images/post8.png', 8, 'Old Town', 'Found', 'Snowy', 'Cat', 'Female', 'White', 'Medium'),
-('Lost Rabbit', 'White rabbit lost in the neighborhood', '/images/post9.png', 9, 'Hilltop', 'Lost', 'Bunny', 'Rabbit', 'Male', 'White', 'Small'),
-('Found Dog', 'Husky with blue eyes found wandering streets', '/images/post10.png', 10, 'Downtown', 'Found', 'Sky', 'Dog', 'Male', 'Grey', 'Large');
 
 -- Adicionando mais comentários
 INSERT INTO `petfind`.`Comments` (`text`, `fkIdPost`, `fkIdUser`)

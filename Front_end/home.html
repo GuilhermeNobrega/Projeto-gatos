@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
   <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
     rel="stylesheet">
   <style>
@@ -15,19 +16,22 @@
       height: 550px;
       object-fit: cover;
     }
-    .minha_pika{
+
+    .minha_pika {
       background-size: contain;
       background: center;
       background: no-repeat;
     }
   </style>
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
     <a class="navbar-brand text-white" href="{{ url_for('home') }}">
       <div class="imagem_logo">
-        <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo" style="width: 15%;">
+        <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo"
+          style="width: 15%;">
       </div>
     </a>
     <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
@@ -46,10 +50,11 @@
           <a class="nav-link nav-link-border" href="{{ url_for('index') }}" style="color: #E2DBD4;">Publicações</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('login') }}" style="color: #E2DBD4;">Login</a>
+          <a class="nav-link nav-link-border" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #E2DBD4;">Login</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('inscreva_se') }}" style="color: #E2DBD4;">Inscrever-se</a>
+          <a class="nav-link nav-link-border" href="{{ url_for('inscreva_se') }}"
+            style="color: #E2DBD4;">Inscrever-se</a>
         </li>
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" style="color:#E2DBD4;" href="#" id="navbarDropdownPerfil" role="button"
@@ -65,9 +70,12 @@
           <a class="nav-link nav-link-border" href="#" style="color: #E2DBD4;">Sobre Nós</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        </li>
+      </ul>
+      <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;">
       </form>
     </div>
   </nav>
@@ -75,17 +83,36 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="primeiro_carrosel"></div>
-          <div class="carousel-caption d-none d-md-block">
-            <h5>blablablalba</h5>
-            <p>blelbbleble</p>
+          <img class="d-block w-100" src="{{ url_for('static', filename='Imagens/cachorro perdido.webp') }}"
+            alt="Primeiro slide">
+          <div class="carousel-caption mt-5">
+            <h4>Seu pet está perdido? Nós podemos ajudar!</h4>
+            <p>Descubra como nossa comunidade pode ajudá-lo a reunir-se com seu amado animal de estimação.</p>
+            <form>
+              <button type="submit" class="btn btn-primary active">Encontre Seu Pet</button>
+            </form>
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100"  src="{{ url_for('static', filename='Imagens/carameloperdido.webp') }}" alt="Segundo slide">
+          <img class="d-block w-100" src="{{ url_for('static', filename='Imagens/felinoperdido.jpeg') }}"
+            alt="Segundo slide">
+          <div class="carousel-caption mt-5">
+            <h4>Procure por uma diversidade de animais!</h4>
+            <p>Nosso site oferece busca para cães, gatos e muito mais.</p>
+            <form>
+              <button type="submit" class="btn btn-primary active carousel-button">Explore Agora</button>
+            </form>
+          </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100"  src="{{ url_for('static', filename='Imagens/cachorrodepressivo.webp') }}" alt="Terceiro slide">
+          <img class="d-block w-100" src="{{ url_for('static', filename='Imagens/roedor.jpg') }}" alt="Terceiro slide">
+          <div class="carousel-caption mt-5">
+            <h4>Encontre todos os tipos de pets!</h4>
+            <p>Até mesmo pequenos roedores estão em nossa base de dados. Venha conferir!</p>
+            <form>
+              <button type="submit" class="btn btn-primary active carousel-button">Veja Mais</button>
+            </form>
+          </div>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -99,93 +126,143 @@
     </div>
   </div>
   <hr>
-<div class="container">
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="{{ url_for('static', filename='Imagens/cachorro perdido.webp') }}" alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">Título do card</h5>
-        <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este conteúdo é um pouco maior, para demonstração.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Atualizados 3 minutos atrás</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top"  src="{{ url_for('static', filename='Imagens/carameloperdido.webp') }}"alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">Título do card</h5>
-        <p class="card-text">Este é um card com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Atualizados 3 minutos atrás</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top"  src="{{ url_for('static', filename='Imagens/cachorrodepressivo.webp') }}"  alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">Título do card</h5>
-        <p class="card-text">Este é um card maior com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional. Este card tem o conteúdo ainda maior que o primeiro, para mostrar a altura igual, em ação.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Atualizados 3 minutos atrás</small>
-      </div>
-    </div>
-  </div>
-  <hr class="featurette-divider">
-  <br>
-  <br>
-  <br>
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">Primeiro título de featurezinhas. <span class="text-muted">Supreendente, não?!</span></h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='Imagens/cachorrodepressivo.webp') }}" alt="Generic placeholder image">
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-  <br>
-  <br>
-  <br>
-  <div class="row featurette">
-    <div class="col-md-7 order-md-2">
-      <h2 class="featurette-heading">Aêêê, moleque! <span class="text-muted">Tá legal ou não tá?</span></h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-    <div class="col-md-5 order-md-1">
-      <img class="featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='Imagens/cachorrodepressivo.webp') }}" alt="Generic placeholder image">
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
- <br>
- <br>
- <br>
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">E, por último, essa aqui. <span class="text-muted">Xeque-mate!</span></h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='Imagens/cachorrodepressivo.webp') }}" alt="Generic placeholder image">
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-</div>
-  
-
-<footer class="footer mt-3 bg text-black text-center">
   <div class="container">
-    <span>Meu Rodapé &copy; 2024</span>
-  </div>
-</footer>
+    <h2>Animais Perdidos Em Tempo Real!</h2>
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="{{ url_for('static', filename='Imagens/carameloperdido2.jpg') }}"
+          alt="Cachorro Perdido" style="height: 300px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Cachorro Perdido no centro comercial Norte</h5>
+          <p class="card-text">Este cachorro adorável desapareceu na região do parque central. Ele é da raça Labrador e
+            atende pelo nome de Rex. Por favor, entre em contato se você tiver alguma informação.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Última atualização 15 minutos atrás</small>
+        </div>
+      </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <div class="card">
+        <img class="card-img-top" src="{{ url_for('static', filename='Imagens/gato.webp') }}" alt="Gato Perdido"
+          style="height: 300px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Gato Perdido no Parque da cidade</h5>
+          <p class="card-text">Este gato fofo está desaparecido desde ontem à noite. Ele é um gato siamês com olhos
+            azuis brilhantes. Responde pelo nome de Miau. Se você o avistou, por favor, entre em contato conosco.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Última atualização 30 minutos atrás</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img-top" src="{{ url_for('static', filename='Imagens/passaro.jpeg') }}" alt="Pássaro Perdido"
+          style="height: 300px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">Pássaro achado perto da 202 Asa Norte</h5>
+          <p class="card-text">Este pássaro colorido desapareceu de seu viveiro na semana passada. Ele é um periquito
+            australiano e responde pelo nome de Tico. Qualquer informação sobre seu paradeiro será muito útil.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Última atualização 1 hora atrás</small>
+        </div>
+      </div>
+    </div>
+    
+    <hr class="featurette-divider mt-5 mb-3">
+    <h2>Feedback Dos Donos!</h2>
+    <div class="row featurette mt-4">
+      <div class="col-md-7">
+        <p class="lead">
+        <h4 class="featurette-heading mb-3">Gato encontrado por Pela Dona <span class="text-muted"> Maria Silva:</span></h4>
+        Este gato fofo está desaparecido desde ontem à noite. Ele é um gato siamês com olhos azuis brilhantes. Responde
+        pelo nome de Miau. Maria Silva conseguiu encontrar o gato e está muito feliz em tê-lo de volta em casa.
+        <br>
+        <br>
+        O site foi fundamental para divulgar o desaparecimento do Miau. Recomendo a todos que estão procurando
+        por seus animais perdidos.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto  border" src="{{ url_for('static', filename='Imagens/gatoencontradopeladona.jpg') }}"
+          style="height: 300px; object-fit: cover;" alt="Gato encontrado">
+      </div>
+    </div>
+
+    <hr class="featurette-divider mt-5 mb-3">
+    <div class="row featurette mt-5">
+      <div class="col-md-7 order-md-2">
+        <p class="lead">
+        <h4 class="featurette-heading mb-3">Cachorro reencontrado Pelo Dono <span class="text-muted">João da
+            Silva:</span></h4>
+        Este cachorro adorável desapareceu na região do parque central. Ele é da raça Labrador e atende pelo nome de
+        Rex. João da Silva conseguiu encontrar o Rex e está extremamente grato pela ajuda da comunidade.
+        <br>
+        <br>
+        A plataforma foi essencial para disseminar informações sobre o desaparecimento do Rex. Excelente
+        recurso para quem precisa encontrar seu pet.
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="featurette-image img-fluid mx-auto  border"
+          src="{{ url_for('static', filename='Imagens/cachorroencontradopelodono.jpg') }}" alt="Cachorro reencontrado"
+          style="height: 300px; object-fit: cover;">
+      </div>
+    </div>
+    <hr class="featurette-divider mt-5 mb-3">
+    <div class="row featurette mt-5">
+      <div class="col-md-7">
+        <p class="lead">
+        <h4 class="featurette-heading mb-3">Pássaro achado Pela Dona<span class="text-muted"> Ana Souza:</span></h4>
+        Este pássaro colorido desapareceu de seu viveiro na semana passada. Ele é um periquito australiano e responde
+        pelo nome de Tico. Ana Souza conseguiu localizar o Tico e está muito agradecida pela funcionalidade da
+        plataforma.
+        <br>
+        <br>
+        Encontrar o Tico foi um alívio graças ao site, que facilitou a comunicação e divulgação do
+        desaparecimento. Recomendo a todos que precisam de ajuda para encontrar seus pets.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto  border" src="{{ url_for('static', filename='Imagens/aveencontradapeladona.jpg') }}"
+          style="height: 300px; object-fit: cover;" alt="Roedor achado">
+      </div>
+    </div>
+
+    <hr class="featurette-divider mt-5 mb-3">
+    <div class="row featurette mt-5">
+      <div class="col-md-7 order-md-2">
+        <p class="lead">
+        <h4 class="featurette-heading mb-3">Roedor encontrado Pelo Dono <span class="text-muted">Carlos Oliveira:</span>
+        </h4>
+        Este pequeno roedor desapareceu de sua gaiola ontem à noite. Ele é um hamster sírio e responde pelo nome de
+        Bolinha. Carlos Oliveira conseguiu encontrá-lo e está muito grato pela rapidez da resposta da comunidade.
+        <br>
+        <br>
+        O site foi essencial para recuperar o Bolinha. A funcionalidade de busca e o apoio da comunidade foram
+        incríveis. Recomendo a plataforma para quem precisa encontrar seu animal de estimação.
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="featurette-image img-fluid mx-auto  border" src="{{ url_for('static', filename='Imagens/roedorencontradopelodono.jpg') }}"
+          style="height: 300px; object-fit: cover;"
+        alt="Roedor encontrado">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+  </div>
+
+
+  <footer class="footer mt-3 bg-light text-dark text-center">
+    <div class="container">
+      <span>&copy; Todos os direitos reservados 2024.</span>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

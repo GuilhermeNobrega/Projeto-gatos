@@ -1,26 +1,123 @@
 body {
-    background-image: url('../Imagens/purplin.png');
+    background-image: url('../Imagens/fundologin.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Estilo para o card */
-.card {
-    width: 100%;
+.info-section {
+    color: white;
+    letter-spacing: 0.1em;
+    text-indent: 3em;
+    font-weight: 500;
+}
+
+.info-section hr {
+    border-top: 1px solid white;
+}
+
+.btn-custom {
+    border-color: #5b287c;
+    color: #5b287c
+}
+
+
+
+@media (min-width: 1920px) {
+    .card {
+        margin-bottom: -40%;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -300px;
+    }
+    .ml-custom {
+        margin-left: 88%;
+        margin-top: -5%;
+    }
 
 }
 
-/* Estilo para a imagem no card */
-.card-img {
-    height: auto;
-    max-width: auto;
-    /* Garante que a imagem não ultrapasse o tamanho do card */
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -300px;
+    }
+
+    .ml-custom {
+        margin-left: 88%;
+        margin-top: -5%;
+    }
 }
 
-.imgg {
-    /* background-color: pink; */
-    padding: 0;
-    background-image: url('Imagens/logobranca.png');
-    background-size: cover;
-    margin: 0;
-    border: 0;
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -430px;
+    }
+
+    .ml-custom {
+        margin-left: 85%;
+        margin-top: -2%;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -410px;
+    }
+
+    .ml-custom {
+        margin-left: 85%;
+        margin-top: -2%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -400px;
+    }
+
+    .ml-custom {
+        margin-left: 78%;
+        margin-top: -3%;
+    }
 }

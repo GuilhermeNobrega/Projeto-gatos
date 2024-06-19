@@ -4,9 +4,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 # Configurações do MySQL
-app.config['MYSQL_HOST'] = '10.88.80.3'
+# app.config['MYSQL_HOST'] = '10.88.80.3'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = '|:rrNI%iLJ\F-ip3'
+# app.config['MYSQL_DB'] = 'petfind'
+app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '|:rrNI%iLJ\F-ip3'
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'petfind'
 
 mysql = MySQL(app)
@@ -36,10 +40,18 @@ def validate_login():
         user = request.get_json()
         cursor = mysql.connection.cursor()
         cursor.execute("SELECT userName, completeName, pathUserImage, email, cep FROM User WHERE (email = %s OR userName = %s) AND password = %s", (user['user'], user['user'], user['password']))
-        user = cursor.fetchall()
+        userInfo = cursor.fetchall()
         cursor.close()
-        if user:
-            return jsonify({"msg": "Authenticated"}), 200
+        if userInfo:
+            # Transforma o resultado da consulta em um dicionário
+            user_dict = {
+                "userName": userInfo[0][0],
+                "completeName": userInfo[0][1],
+                "pathUserImage": userInfo[0][2],
+                "email": userInfo[0][3],
+                "cep": userInfo[0][4]
+            }
+            return jsonify({"msg": "Authenticated", "user": user_dict}), 200
         else:
             return jsonify({"msg": "User not found"}), 404
     else:
@@ -63,12 +75,31 @@ def list_user_posts():
 
 @app.route('/list/all_posts', methods=['GET'])
 def list_all_posts():
+    post_list = []
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM Post")
-    posts = cursor.fetchall()
+    postsRaw = cursor.fetchall()
     cursor.close()
-    if posts:
-        return jsonify(posts), 200
+    if postsRaw:
+        for post in postsRaw:
+            post_dict = {
+                "id": post[0],
+                "title": post[1],
+                "description": post[2],
+                "imagesPath": post[3],
+                "postOwnerUserId": post[4],
+                "localization": post[5],
+                "publiType": post[6],
+                "animalName": post[7],
+                "animalSpecie": post[8],
+                "animalGender": post[9],
+                "animalColor": post[10],
+                "animalSize": post[11],
+                "postDate": post[12]
+            }
+            post_list.append(post_dict)
+            
+        return jsonify(post_list), 200
     else:
         return jsonify({"msg": "No posts to share with this user"}), 400
 

@@ -1,15 +1,103 @@
 body {
-    background-image: url('../Imagens/purplin.png');
+    background-image: url('../Imagens/fundologin.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
 }
 
-.card {
-    width: 100%;
-     
-    margin: 0 auto;
+.info-section {
+    color: white;
+    letter-spacing: 0.1em;
+    text-indent: 3em;
+    font-weight: 500;
 }
 
-.card-img {
-    height: auto;
-    max-width: auto;
+.info-section hr {
+    border-top: 1px solid white;
+}
+
+.btn-custom {
+    border-color: #5b287c;
+    color: #5b287c
+}
+
+
+
+@media (min-width: 1920px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -300px;
+    }
+
+    .ml-custom {
+        margin-left: 93%;
+        margin-top: -10%;
+    }
+}
+
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -300px;
+    }
+
+    .ml-custom {
+        margin-left: 93%;
+        margin-top: -10%;
+    }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -300px;
+    }
+
+    .ml-custom {
+        margin-left: 85%;
+        margin-top: -2%;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card {
+        margin-top: 5px;
+    }
+
+    .info-section h2 hr {
+        margin-top: -200px;
+    }
+
+    .info-section hr {
+        margin-top: -290px;
+    }
+
+    .ml-custom {
+        margin-left: 80%;
+        margin-top: -4%;
+    }
 }

@@ -38,7 +38,7 @@
 
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link:focus::after,
-.navbar-nav .nav-link.active::after {
+.navbar-nav .av-link.active::after {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -54,13 +54,19 @@
 }
 
 
-@media (min-width: 320px) and (max-width: 360px) {
+@media (min-width: 320px) and (max-width: 430px) {
   .card_filtro {
-    margin-top: 10%;
+    margin-top: 15%;
+    
+  }
+}
+@media (min-width: 320px) {
+  .imagem_logo {
+    width: 230px;
   }
 }
 
-@media (max-width: 430px) {
+@media (min-width: 430px) {
   .imagem_logo {
     width: 270px;
   }
@@ -198,6 +204,7 @@
   top: 8%;
   left: 0;
   width: 23%;
+  
 }
 
 .card_perfil {
