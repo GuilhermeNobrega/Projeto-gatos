@@ -32,14 +32,14 @@
           <a class="nav-link nav-link-border" href="{{ url_for('index') }}" style="color: #E2DBD4;">Publicações</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #E2DBD4;">Login</a>
+          <a class="nav-link nav-link-border" href="{{ url_for('login') }}">Login</a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
+      <!-- <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         </li>
-      </ul>
+      </ul> -->
     <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;">
     </form>
     </div> 
