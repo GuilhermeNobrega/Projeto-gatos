@@ -106,25 +106,28 @@
             }
 
             fetch('http://35.211.233.11:5000/list/all_posts')
-                .then(response => response.json())
-                .then(posts => {
-                    const postsContainer = document.getElementById('postsContainer');
-                    posts.forEach(post => {
-                        const postElement = document.createElement('div');
-                        postElement.className = 'card-body';
-                        const postDate = new Date(post.postDate);
-                        const timeAgo = timeSince(postDate);
-                        const postOwnerUserData = fetch('http://35.211.233.11:5000/list/users/byid', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ idUser: post.postOwnerUserId })
-                        });
-                        const postOwnerUserName = postOwnerUserData.completeName
+            .then(response => response.json())
+            .then(posts => {
+                const postsContainer = document.getElementById('postsContainer');
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'card-body';
+                    const postDate = new Date(post.postDate);
+                    const timeAgo = timeSince(postDate);
+                    
+                    fetch('http://35.211.233.11:5000/list/users/byid', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ idUser: post.postOwnerUserId })
+                    })
+                    .then(response => response.json())
+                    .then(userData => {
+                        const postOwnerUserName = userData.completeName;
                         postElement.innerHTML = `
                             <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> ${timeAgo}</div>
-                            <div class="card-text"> ${postOwnerUserData.completeName}</div>
+                            <div class="card-text"> ${postOwnerUserName}</div>
                             <a class="card-link" href="#">
                                 <h5 class="card-title">${post.title}</h5>
                             </a>
@@ -133,14 +136,14 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img class="d-block w-100" src="${post.imagesPath}" alt="Slide">
-                                    </div
+                                    </div>
                                 </div>
-                    </div>
-                </div>
-            `;
-            postsContainer.appendChild(postElement);
-        });
-    });
+                            </div>
+                        `;
+                        postsContainer.appendChild(postElement);
+                    });
+                });
+            });
 
     function timeSince(date) {
         const seconds = Math.floor((new Date() - date) / 1000);
