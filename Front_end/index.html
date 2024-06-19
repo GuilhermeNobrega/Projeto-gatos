@@ -2,51 +2,51 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Find - Publicações</title>
-  <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Find</title>
+    <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
+        rel="stylesheet">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
+        <a class="navbar-brand text-white" href="{{ url_for('home') }}">
+            <div class="imagem_logo">
+                <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo"
+                    style="width: 15%;">
+            </div>
+        </a>
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
+            data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
-    <a class="navbar-brand text-white" href="{{ url_for('home') }}">
-      <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo" style="width: 15%;">
-    </a>
-    <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
-      data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-      aria-label="Alterna navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('home') }}" style="color: #E2DBD4;">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="#" style="color: #E2DBD4;">Publicações <span class="sr-only">(página atual)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #E2DBD4;">Login</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('inscreva_se') }}" style="color: #E2DBD4;">Inscrever-se</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-        </li>
-      </ul>
-      <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;">
-      </form>
-    </div>
-  </nav>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('home') }}" style="color: #E2DBD4;">Home <span
+                            class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('index') }}"
+                        style="color: #E2DBD4;">Publicações</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('login') }}" style="color: #E2DBD4;">Login</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('inscreva_se') }}"
+                        style="color: #E2DBD4;">Inscrever-se</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="row">
@@ -124,14 +124,14 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img class="d-block w-100" src="${post.imagesPath}" alt="Slide">
-                                    </div>
+                                    </div
                                 </div>
-                            </div>
-                        `;
-                        postsContainer.appendChild(postElement);
-                    });
-                });
-
+                    </div>
+                </div>
+            `;
+            postsContainer.appendChild(postElement);
+        });
+    });
 
     function timeSince(date) {
         const seconds = Math.floor((new Date() - date) / 1000);
@@ -160,15 +160,5 @@
     }
 });
 </script>
-<footer class="footer mt-3 bg-light text-dark text-center">
-    <div class="container">
-      <span>&copy; Todos os direitos reservados 2024.</span>
-    </div>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
