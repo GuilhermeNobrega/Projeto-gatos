@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request, render_template, session
-from flask_cors import CORS
+# from flask_cors import CORS
 from flask_caching import Cache
 import pickle
 
 app = Flask(__name__, template_folder='./')
-CORS(app, resources={r"/*": {"origins": "*"}})
+# CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Configuração básica do cache (memória neste exemplo)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
