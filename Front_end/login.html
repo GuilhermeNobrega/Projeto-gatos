@@ -110,12 +110,12 @@
             }
         });
     
-        window.onload = function() {
-            const userData = localStorage.getItem('user') || sessionStorage.getItem('user');
-            if (userData) {
-                window.location.href = '{{ url_for("index") }}'; // Redirect if user is already logged in
-            }
-        };
+        // window.onload = function() {
+        //     const userData = localStorage.getItem('user') || sessionStorage.getItem('user');
+        //     if (userData) {
+        //         window.location.href = '{{ url_for("index") }}'; // Redirect if user is already logged in
+        //     }
+        // };
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
