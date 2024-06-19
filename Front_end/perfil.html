@@ -2,48 +2,41 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Find - Perfil</title>
-  <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/perfil.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Find - Perfil</title>
+    <link rel="icon" href="{{ url_for('static', filename='Imagens/logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/perfil.css') }}">
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
-    <a class="navbar-brand text-white" href="{{ url_for('home') }}">
-      <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo" style="width: 15%;">
-    </a>
-    <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
-      data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-      aria-label="Alterna navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5b287c;">
+        <a class="navbar-brand text-white" href="{{ url_for('home') }}">
+            <img class="img-fluid" src="{{ url_for('static', filename='Imagens/logo.png') }}" alt="Logo" style="width: 15%;">
+        </a>
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
+            data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('home') }}" style="color: #E2DBD4;">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('index') }}" style="color: #E2DBD4;">Publicações</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link nav-link-border" href="{{ url_for('login') }}">Login</a>
-        </li>
-      </ul>
-      <!-- <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-        </li>
-      </ul> -->
-    <form id="logout-form" action="{{ url_for('logout') }}" method="POST" style="display: none;">
-    </form>
-    </div> 
-  </nav>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('home') }}" style="color: #E2DBD4;">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('index') }}" style="color: #E2DBD4;">Publicações</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-link-border" href="{{ url_for('login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <br>
     <div class="container-fluid">
         <div class="row">
@@ -55,8 +48,7 @@
                         href="#list-informacoes" role="tab" aria-controls="list-informacoes">Alterar Informações
                         Pessoais</a>
                     <a class="list-group-item list-group-item-action" id="list-altsenha-list" data-toggle="list"
-                        href="#list-list-altsenha" role="tab" aria-controls="list-list-altsenha">Alterar
-                        Senha</a>
+                        href="#list-list-altsenha" role="tab" aria-controls="list-list-altsenha">Alterar Senha</a>
                     <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
                         href="#list-delete" role="tab" aria-controls="list-settings">Excluir Conta</a>
                     <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
@@ -72,24 +64,25 @@
                                 <img class="rounded-circle" width="75" src="{{ url_for('static', filename='Imagens/avatar_humberto.avif') }}" alt="">
                             </div>
                             <br>
-                            <div class="h5">Humberto Nascimento Santos Junior</div>
+                            <div class="h5">Nome do Usuário</div>
                         </div>
-                        <li class="list-group-item">
-                            <div class="h6 text-muted"> Minhas Publicacões</div>
-                            <div class="h7">256</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="h6 text-muted">Comentários</div>
-                            <div class="h7">10</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="h6 text-muted">Animais a procura</div>
-                            <div class="h7">10</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="h6 text-muted">Animais Achados</div>
-                            <div class="h7">2</div>
-                        </li>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="h6 text-muted"> Minhas Publicacões</div>
+                                <div class="h7">256</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">Comentários</div>
+                                <div class="h7">10</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">Animais a procura</div>
+                                <div class="h7">10</div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="h6 text-muted">Animais Achados</div>
+                                <div class="h7">2</div>
+                            </li>
                         </ul>
                         <div class="card">
                             <div class="card-header">
@@ -281,41 +274,40 @@
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary ml-5">Confirmar Mudanças</button>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                    </div>
-                    <div class="tab-pane fade" id="list-delete" role="tabpanel" aria-labelledby="list-settings-list">
-                        <form class="form-inline">
-                            <div class="form-group col-md-3">
-                                <label for="staticEmail2" class="sr-only">Email</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
-                                    value="humberto.nj@sempreceub.com">
+                            </form>
                             </div>
-                            <div class="form-group mx-sm-6 mb-3">
-                                <label for="inputPassword2" class="sr-only">Senha</label>
-                                <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
                             </div>
-                            <button type="submit" class="btn btn-primary ml-2 mb-3" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">Confirmar identidade</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- Scripts do Bootstrap e dependências -->
-    <footer class="footer mt-3 bg-light text-dark text-center">
-        <div class="container">
-          <span>&copy; Todos os direitos reservados 2024.</span>
-        </div>
-      </footer>
-    
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
-    
-    </html>
+                            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            </div>
+                            <div class="tab-pane fade" id="list-delete" role="tabpanel" aria-labelledby="list-settings-list">
+                            <form class="form-inline">
+                                <div class="form-group col-md-3">
+                                    <label for="staticEmail2" class="sr-only">Email</label>
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
+                                        value="humberto.nj@sempreceub.com">
+                                </div>
+                                <div class="form-group mx-sm-6 mb-3">
+                                    <label for="inputPassword2" class="sr-only">Senha</label>
+                                    <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
+                                </div>
+                                <button type="submit" class="btn btn-primary ml-2 mb-3" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop">Confirmar identidade</button>
+                            </form>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            
+                            <!-- Scripts do Bootstrap e dependências -->
+                            <footer class="footer mt-3 bg-light text-dark text-center">
+                                <div class="container">
+                                    <span>&copy; Todos os direitos reservados 2024.</span>
+                                </div>
+                            </footer>
+                            
+                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                            </body>
+                            
+                            </html>
