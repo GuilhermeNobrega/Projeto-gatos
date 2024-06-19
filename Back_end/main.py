@@ -28,17 +28,17 @@ def get_users_by_id():
     if request.is_json:
         user = request.get_json()
         cursor = mysql.connection.cursor()
-        cursor.execute("SELECT idUser, email, userName, completeName, pathUserImage cep FROM User WHERE idUser = %s", (user['idUser']))
+        cursor.execute("SELECT idUser, email, userName, completeName, pathUserImage,s cep FROM User WHERE idUser = %s", (user['idUser']))
         userInfo = cursor.fetchall()
         cursor.close()
         if userInfo:
             # Transforma o resultado da consulta em um dicionário
             user_dict = {
                 "idUser": userInfo[0],
-                "userName": userInfo[1],
-                "completeName": userInfo[2],
-                "pathUserImage": userInfo[3],
-                "email": userInfo[4],
+                "email": userInfo[1],
+                "userName": userInfo[2],
+                "completeName": userInfo[3],
+                "pathUserImage": userInfo[4],
                 "cep": userInfo[5]
             }
             return jsonify(user_dict), 200
