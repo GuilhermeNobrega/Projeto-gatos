@@ -34,11 +34,11 @@ def get_users_by_id():
         if userInfo:
             # Transforma o resultado da consulta em um dicionário
             user_dict = {
-                "idUser": userInfo[0],
-                "email": userInfo[1],
-                "userName": userInfo[2],
-                "completeName": userInfo[3],
-                "pathUserImage": userInfo[4],
+                "idUser": userInfo[0][0],
+                "email": userInfo[0][1],
+                "userName": userInfo[0][2],
+                "completeName": userInfo[0][3],
+                "pathUserImage": userInfo[0][4],
                 "cep": userInfo[5]
             }
             return jsonify(user_dict), 200
