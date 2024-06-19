@@ -105,7 +105,7 @@
                 userProfileSection.style.display = 'none';
             }
 
-            fetch('http://35.211.233.11:8081/list/all_posts')
+            fetch('http://35.211.233.11:5000/list/all_posts')
             .then(response => response.json())
             .then(posts => {
                 const postsContainer = document.getElementById('postsContainer');
@@ -115,7 +115,7 @@
                     const postDate = new Date(post.postDate);
                     const timeAgo = timeSince(postDate);
                     
-                    fetch('http://35.211.233.11:8081/list/users/byid', {
+                    fetch('http://35.211.233.11:5000/list/users/byid', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
