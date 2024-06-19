@@ -28,7 +28,7 @@ def get_users_by_id():
     if request.is_json:
         user = request.get_json()
         cursor = mysql.connection.cursor()
-        cursor.execute("SELECT idUser, email, userName, completeName, pathUserImage, cep FROM User WHERE idUser = %s", (user['idUser']))
+        cursor.execute("SELECT idUser, email, userName, completeName, pathUserImage, cep FROM User WHERE idUser = %s", (user['idUser'],))
         userInfo = cursor.fetchall()
         cursor.close()
         if userInfo:

@@ -147,9 +147,9 @@ VALUES
 ('Lost Cat', 'Grey cat lost last night', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/greycat.jpg', 5, 'Suburbs', 'Lost', 'Shadow', 'Cat', 'Male', 'Grey', 'Medium', '2024-06-08 11:00:00'),
 ('Found Bird', 'Small bird found in the garden', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 6, 'Garden Area', 'Found', 'Tweety', 'Bird', 'Female', 'Yellow', 'Small', '2024-06-08 12:00:00'),
 ('Lost Dog', 'Black labrador missing', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 7, 'Park City', 'Lost', 'Blacky', 'Dog', 'Male', 'Black', 'Large', '2024-06-08 13:00:00'),
-('Found Cat', 'White cat found sleeping in a barn', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 8, 'Old Town', 'Found', 'Snowy', 'Cat', 'Female', 'White', 'Medium', '2024-06-08 14:00:00'),
-('Lost Rabbit', 'White rabbit lost in the neighborhood', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 9, 'Hilltop', 'Lost', 'Bunny', 'Rabbit', 'Male', 'White', 'Small', '2024-06-08 15:00:00'),
-('Found Dog', 'Husky with blue eyes found wandering streets', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 10, 'Downtown', 'Found', 'Sky', 'Dog', 'Male', 'Grey', 'Large', '2024-06-08 16:00:00');
+('Found Cat', 'White cat found sleeping in a barn', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg',7, 'Old Town', 'Found', 'Snowy', 'Cat', 'Female', 'White', 'Medium', '2024-06-08 14:00:00'),
+('Lost Rabbit', 'White rabbit lost in the neighborhood', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 3, 'Hilltop', 'Lost', 'Bunny', 'Rabbit', 'Male', 'White', 'Small', '2024-06-08 15:00:00'),
+('Found Dog', 'Husky with blue eyes found wandering streets', 'https://storage.cloud.google.com/pet-find-dependencies/postImages/animais%5B1%5D.jpg', 3, 'Downtown', 'Found', 'Sky', 'Dog', 'Male', 'Grey', 'Large', '2024-06-08 16:00:00');
 
 
 INSERT INTO `petfind`.`Comments` (`text`, `fkIdPost`, `fkIdUser`)
