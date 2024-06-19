@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, request
 from flask_mysqldb import MySQL
-# from flask_cors import CORS
+from flask_cors import CORS
 app = Flask(__name__)
-# CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.config['MYSQL_HOST'] = '10.88.80.3'
 app.config['MYSQL_USER'] = 'root'
