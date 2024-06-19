@@ -127,7 +127,9 @@
                         const postOwnerUserName = userData.completeName;
                         postElement.innerHTML = `
                             <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> ${timeAgo}</div>
-                            <div class="card-text"> ${postOwnerUserName}</div>
+                            <div class="card-text">
+                                <span style="font-weight: bold; font-size: larger;">${postOwnerUserName}</span>
+                            </div>
                             <a class="card-link" href="#">
                                 <h5 class="card-title">${post.title}</h5>
                             </a>
